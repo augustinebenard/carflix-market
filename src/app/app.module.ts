@@ -32,6 +32,7 @@ import {CardModule} from 'primeng/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
 import {ScrollTopModule} from 'primeng/scrolltop';
+import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {ScrollTopModule} from 'primeng/scrolltop';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    HireInspectorComponent
+    HireInspectorComponent,
+    QuestionnaireComponent
   ],
   imports: [
     BrowserModule,

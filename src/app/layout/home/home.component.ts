@@ -120,7 +120,7 @@ export class HomeComponent implements OnInit {
 
 
   gotoQuestionaire() {
-    this.router.navigate(['questionaire'])
+    this.router.navigate(['questionnaire'])
   }
   viewCar() {
 

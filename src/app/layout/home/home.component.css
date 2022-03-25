@@ -1,0 +1,83 @@
+.home-title{
+  color: #fff;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 50%);
+}
+
+
+.buyNow{
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+  0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+  0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.home-subtitle {
+  font-family: 'VT323', monospace;
+}
+
+:host ::ng-deep .p-dialog .product-image {
+  width: 150px;
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+
+body {
+  padding: 2em;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+}
+
+.signal{
+  max-height: 30px;
+  color: green;
+  filter:grayscale(100%) brightness(70%) sepia(400%) hue-rotate(60deg) saturate(400%);
+}
+:host ::ng-deep .p-datatable-table .header> th {
+  background: rgba(56, 140, 124, 0.1);
+  color: #388c7c;
+  font-size: 15px;
+}
+
+
+
+:host ::ng-deep .p-datatable .header .p-sortable-column .p-highlight:hover .p-sortable-column-icon {
+  color: #388c7c !important;
+}
+:host ::ng-deep .p-datatable .header .p-sortable-column .p-sortable-column-icon {
+  color: #388c7c !important;
+  margin-left: 0.5rem;
+  font-size: 10px;
+}
+
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-footer {
+  background: rgba(56, 140, 124, 0.1);
+  color: #388c7c;
+}
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-footer .show-moreCars {
+  background: rgba(56, 140, 124, 0.1);
+  padding: 0px 20px;
+  display: inline-block;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 13px;
+  float: right;
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-footer .show-moreCars:hover {
+  background: #388c7c;
+  padding: 0px 20px;
+  display: inline-block;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 13px;
+  float: right;
+  color: white;
+  cursor: pointer;
+}

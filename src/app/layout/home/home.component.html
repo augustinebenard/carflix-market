@@ -1,2 +1,88 @@
+<!-- START HOME -->
+<section class="section bg-home align-items-center d-flex" id="home">
+  <div class="bg-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="text-center text-white">
+          <h1 class="buyNow">Buy Now</h1>
+          <!-- <h1 class="home-title text-uppercase">Tell us what you need <br> Tell us your features and budget</h1> -->
+          <div class="home-border my-3 mt-4"></div>
+          <h4 class="home-subtitle pt-4 mx-auto">Tell us what you NEED, tell us your FEATURES and BUDGET <br> let get
+            you the
+            best deal in the market</h4>
+          <div class="pt-4 mt-3 home-button">
+            <a (click)="gotoQuestionaire()" class="btn btn-primary btn-round text-uppercase">Talk to us
+              <span class="play-shadow ms-2" data-bs-toggle="modal" data-bs-target="#watchvideomodal">
+                <span class="home-btn"><i class="mdi mdi-chevron-right text-center"></i></span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END HOME -->
 
-<p>Home component</p>
+<!-- START TOP CARS -->
+<section class="section bg-light" id="carMarket">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8">
+        <div class="title-box text-center">
+          <h5 class="sub-title text-primary text-uppercase">Car Market</h5>
+          <h3 class="mt-3 fw-normal">Top Cars in the Market</h3>
+          <div class="title-border"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <p-table [value]="cars" [resizableColumns]="true" [scrollable]="true" scrollHeight="500px"
+        selectionMode="single" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
+        styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" responsiveLayout="scroll">
+
+        <ng-template pTemplate="header">
+          <tr class="header">
+            <th pResizableColumn style="flex-basis:25%">Sketch</th>
+
+            <th pResizableColumn style="flex-basis:25%" pSortableColumn="carName">Name <p-sortIcon class="sortIcon" field="carName">
+              </p-sortIcon>
+            </th>
+            <th pResizableColumn style="flex-basis:25%" pSortableColumn="year">Year <p-sortIcon field="year">
+              </p-sortIcon>
+            </th>
+            <th pResizableColumn style="flex-basis:25%" pSortableColumn="minPrice">Min Price <p-sortIcon
+                field="minPrice"></p-sortIcon>
+            </th>
+
+            <th pResizableColumn style="flex-basis:25%" pSortableColumn="maxPrice">Max Price <p-sortIcon
+                field="maxPrice"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-car>
+          <tr (click)="viewCar()" style="cursor: pointer;">
+            <td style="flex-basis:25%">
+              <img style="max-width: 60px;" [src]="'assets/images/cars/' + car.sketch" [alt]="car.carName" width="100" class="shadow-4" />
+            </td>
+            <td style="flex-basis:25%"><span>{{car.carName}}</span></td>
+            <td style="flex-basis:25%"><span>{{car.year}}</span></td>
+            <td style="flex-basis:25%"> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
+            <td style="flex-basis:25%"> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary" class="summary">
+          <div  class=" p-d-flex p-ai-center p-jc-between">
+           <span> Displaying top {{cars ? cars.length : 0 }} cars.</span><div class="show-moreCars">Show More</div>
+
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</section>
+<!-- END TOP CARS -->

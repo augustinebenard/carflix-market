@@ -81,3 +81,64 @@ body {
   color: white;
   cursor: pointer;
 }
+
+
+/* Button */
+.btn {
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+  color: #FFFFFF;
+}
+
+
+/* Service */
+.service .nav .nav-link {
+  background: var(--light);
+  transition: .5s;
+}
+
+.service .nav .nav-link.active {
+  background: var(--primary);
+}
+
+.service .nav .nav-link.active h4 {
+  color: #FFFFFF !important;
+}
+
+
+
+
+.nav-pills .nav-link {
+background: none;
+border: 0;
+border-radius: 0px;
+}
+
+.title-border {
+  display: inline-block;
+  width: 50px;
+  height: 2px;
+  background: #388c7c;
+  position: relative;
+  z-index: 1;
+  right: 10px;
+}
+
+.title-border {
+  border-bottom: 2px solid #388c7c;
+}
+
+.title-border:before {
+  position: absolute;
+  right: -15px;
+  top: 0;
+  content: "";
+  height: 2px;
+  width: 10px;
+  background: #388c7c;
+}

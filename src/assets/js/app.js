@@ -23,7 +23,7 @@
  })
 
 
- // Smooth scroll 
+ // Smooth scroll
  var scroll = new SmoothScroll('#navbar-navlist a', {
      speed: 300,
      offset: 60
@@ -155,4 +155,4 @@
      css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #ffffff}";
      document.body.appendChild(css);
  };
- window.onload(typewrite());
+//  window.onload(typewrite());

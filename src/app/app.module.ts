@@ -1,6 +1,7 @@
+import { HireInspectorComponent } from './components/hire-inspector/hire-inspector.component';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,19 +30,23 @@ import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 import {CardModule} from 'primeng/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InputMaskModule} from 'primeng/inputmask';
+import {ScrollTopModule} from 'primeng/scrolltop';
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    HireInspectorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule,ReactiveFormsModule,
     TableModule,
     CalendarModule,
 		SliderModule,
@@ -59,7 +64,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
-    CardModule
+    CardModule,InputMaskModule,ScrollTopModule
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]

@@ -125,4 +125,8 @@ export class HomeComponent implements OnInit {
   viewCar() {
 
   }
+
+  hireInspector(){
+    this.router.navigate(['hireInspector'])
+  }
 }

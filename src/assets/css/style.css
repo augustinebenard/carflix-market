@@ -1,31 +1,4 @@
-/* Template Name: Deazy
-   Author: Themesdesign
-   Version: 1.0.0
-   Created: Jan 2021
-   File Description: Main Css file of the template
-*/
 
-/****************************************\
-
-01.general
-02.helper
-03.components
-04.about
-05.blog
-06.clients
-07.faq
-08.feature
-09.footer
-10.free-trial
-11.home
-12.how it works
-13.menu
-14.pricing
-15.responsive
-16.subscribe
-17.video
-
-*****************************************/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap");
 body {
@@ -1494,19 +1467,19 @@ hr {
     opacity: 1;
 }
 
-.home-five {
+/* .home-five {
     background-image: url(../images/img-3.jpg);
-}
+} */
 
 .slidero {
     position: relative;
     z-index: 1;
 }
 
-.home-six {
+/* .home-six {
     background-image: url(../images/img-2.jpg);
     padding: 220px 0px 170px 0px;
-}
+} */
 
 .home-registration-form {
     padding: 40px 35px;

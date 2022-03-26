@@ -1506,10 +1506,11 @@ hr {
 }
 
 .service-box {
-    padding: 30px 25px;
-    border-radius: 10px;
-    border: 1px solid #efefef;
-    margin-top: 70px !important;
+  padding: 30px 25px;
+  border-radius: 10px;
+  border: 3px solid #efefef;
+  margin-top: 70px !important;
+  height: 191px !important;
 }
 
 .service-box .services-icon {

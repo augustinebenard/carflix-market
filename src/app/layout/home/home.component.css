@@ -173,3 +173,135 @@ border-radius: 0px;
     text-align: center;
   }
   }
+
+  /* couter */
+
+/*---------------------------------------------------- */
+
+.quiz-top-area {
+  padding: 17px 4px;
+  background: rgba(56, 140, 124, 0.1);
+  }
+  .quiz-top-area h1 {
+    color: #fff;
+    font-size: 25px;
+  }
+  .quiz-top-area .quiz-countdown {
+    top: 82px;
+    right: 30%;
+  }
+  .quiz-top-area .quiz-countdown li {
+    width: 70px;
+    height: 52px;
+    margin-left: 12px;
+    border-radius: 8px;
+    position: relative;
+    display: inline-block;
+    background-color: #e6e6e6;
+  }
+  .quiz-top-area .quiz-countdown li:after {
+    top: 0;
+    right: -12px;
+    content: ":";
+    color: #ffff;
+    font-size: 30px;
+    position: absolute;
+  }
+  .quiz-top-area .quiz-countdown li:last-child:after {
+    display: none;
+  }
+  .quiz-top-area .quiz-countdown .count-down-number {
+    font-size: 38px;
+    line-height: 50px;
+    font-family: "Open Sans";
+    color: red;
+    font-weight: 700;
+  }
+  .quiz-top-area .quiz-countdown .count-unit {
+    display: block;
+    color: #ffff;
+    margin-top: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 640px) {
+    .accordion {
+        text-align: center;
+    }
+    img{
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+    .min-length{
+        padding: unset;
+    }
+  }
+
+  @media screen and (max-width:  480px) {
+    .accordion {
+        text-align: center;
+    }
+    img{
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+    .min-length{
+        padding: unset;
+    }
+
+    .service-box {
+        padding: 30px 25px;
+        border-radius: 10px;
+        border: 3px solid #efefef;
+        margin-top: 0 !important;
+        height: auto !important;
+    }
+}
+
+
+
+  @media screen and (max-width:  1024px) {
+    .accordion {
+        text-align: center;
+    }
+  }
+
+  @media screen and (max-width:  1280px) {
+    .accordion {
+        text-align: center;
+    }
+    img{
+
+        margin-bottom: 12px;
+    }
+    .min-length{
+        padding: unset;
+    }
+  }
+
+  @media screen and (max-width:   720px) {
+    .accordion {
+        text-align: center;
+    }
+    img{
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+    .min-length{
+        padding: unset;
+    }
+
+    .service-box {
+        padding: 30px 25px;
+        border-radius: 10px;
+        border: 3px solid #efefef;
+        margin-top: 0 !important;
+        height: auto !important;
+    }
+  }
+
+  .launching-soon{
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../../assets/images/instructor/carousel-bg-2.jpg) center center no-repeat;
+    background-size: cover;
+  }

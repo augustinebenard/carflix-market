@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-car-market',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarMarketComponent implements OnInit {
   loading!: boolean;
+
   cars: any=[];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
 
@@ -389,4 +392,8 @@ export class CarMarketComponent implements OnInit {
   viewCar(){
 
   }
+  gotoHome(){
+this.router.navigate([''])
+  }
+
 }

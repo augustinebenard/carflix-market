@@ -65,11 +65,11 @@
 
 
     <div class="card mt-4">
-      <p-table [value]="cars" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id" [rows]="10"
+      <p-table #dt1 [value]="cars" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id" [rows]="10"
         [showCurrentPageReport]="true" [loading]="loading"
         styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" responsiveLayout="scroll"
         [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-gridlines" [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  >
 
         <ng-template pTemplate="header">
           <tr class="header">
@@ -109,6 +109,14 @@
 
 
 
-
+    <div class="row mt-3">
+      <div class="col-lg-12">
+        <div class="mt-4 text-center">
+          <a (click)="gotoHome()" class="btn btn-primary btn-round">Back Home <i
+              class="mdi mdi-arrow-left ps-1"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+<app-footer></app-footer>

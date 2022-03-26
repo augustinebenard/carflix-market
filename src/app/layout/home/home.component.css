@@ -147,3 +147,29 @@ border-radius: 0px;
 
   padding: 0.1rem 0.3rem !important;
 }
+
+.social-links li a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+  font-size: 15px;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+}
+.social-links li a:hover {
+  background-color: #388c7c;
+}
+@media screen and (max-width: 667px) {
+.follow-us{
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 1180px) {
+  .follow-us{
+    text-align: center;
+  }
+  }

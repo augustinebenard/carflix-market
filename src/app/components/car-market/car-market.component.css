@@ -38,3 +38,122 @@
   color: white;
   cursor: pointer;
 }
+
+.featuredCard{
+    /* width: 448px; */
+    box-shadow: rgb(88 102 126 / 8%) 0px 4px 24px, rgb(88 102 126 / 12%) 0px 1px 2px;
+    border-radius: 8px;
+    /* padding: 14px 16px 17px; */
+    border: 3px solid #efefef;
+}
+.featuredCard .trends{
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.trends>span{
+  font-weight: bold;
+    font-size: 16px;
+}
+
+.carDetails {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  padding-left: 9px;
+}
+.carDetails > div:nth-child(1) {
+  -webkit-box-align: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 8px auto 1fr;
+}
+
+.carDetails .rank {
+  font-size: 12px;
+  line-height: 18px;
+  color: #808a9d;
+  font-family: sans-serif;
+
+}
+
+.carDetails .coin-wrapper {
+  box-sizing: border-box;
+  margin: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: 16px;
+}
+
+
+.carDetails .coin-logo {
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+}
+
+
+
+.carName {
+  box-sizing: border-box;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.carDetails .coin-wrapper p {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+  margin-bottom: 0px;
+}
+
+.carDetails .alias {
+  color: #808a9d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.trends img{
+
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+
+}
+:host ::ng-deep .p-datatable table {
+  border-collapse: collapse;
+  /* min-width: 70%; */
+  table-layout: fixed;
+}
+
+
+.carPrice .maxPrice {
+  line-height: 1.5;
+  margin: 0px;
+  color: rgb(23, 25, 36);
+  /* font-size: 14px; */
+  font-weight: 500;
+}
+
+.carPrice .minPrice{
+
+    line-height: 1.5;
+    margin: 0px;
+    color: rgb(88, 102, 126);
+    /* font-size: 12px; */
+
+}
+:host ::ng-deep .p-datatable-table .header> th {
+  background: rgba(56, 140, 124, 0.1);
+  color: #388c7c;
+  font-size: 15px;
+}

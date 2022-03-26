@@ -82,7 +82,29 @@ body {
   color: white;
   cursor: pointer;
 }
+:host ::ng-deep .p-datatable table {
+  border-collapse: collapse;
+  /* min-width: 70%; */
+  table-layout: fixed;
+}
 
+
+.carPrice .maxPrice {
+  line-height: 1.5;
+  margin: 0px;
+  color: rgb(23, 25, 36);
+  /* font-size: 14px; */
+  font-weight: 500;
+}
+
+.carPrice .minPrice{
+
+    line-height: 1.5;
+    margin: 0px;
+    color: rgb(88, 102, 126);
+    /* font-size: 12px; */
+
+}
 
 /* Button */
 .btn {

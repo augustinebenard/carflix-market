@@ -33,6 +33,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
+import { CarMarketComponent } from './components/car-market/car-market.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { QuestionnaireComponent } from './components/questionnaire/questionnaire
     HeaderComponent,
     HomeComponent,
     HireInspectorComponent,
-    QuestionnaireComponent
+    QuestionnaireComponent,
+    CarMarketComponent
   ],
   imports: [
     BrowserModule,

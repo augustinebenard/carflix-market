@@ -17,9 +17,9 @@
   letter-spacing: 30px;
 }
 
-.home-subtitle {
+/* .home-subtitle {
   font-family: 'VT323', monospace;
-}
+} */
 
 :host ::ng-deep .p-dialog .product-image {
   width: 150px;
@@ -142,4 +142,8 @@ border-radius: 0px;
   height: 2px;
   width: 10px;
   background: #388c7c;
+}
+:host ::ng-deep  .p-datatable .p-datatable-tbody > tr > td {
+
+  padding: 0.1rem 0.3rem !important;
 }

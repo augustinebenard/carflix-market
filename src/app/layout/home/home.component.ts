@@ -122,6 +122,9 @@ export class HomeComponent implements OnInit {
   gotoQuestionaire() {
     this.router.navigate(['questionnaire'])
   }
+  gotoCarmarket(){
+    this.router.navigate(['carMarket'])
+  }
   viewCar() {
 
   }

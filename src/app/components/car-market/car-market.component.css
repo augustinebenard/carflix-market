@@ -1,0 +1,40 @@
+
+
+
+:host ::ng-deep .p-datatable .header .p-sortable-column .p-highlight:hover .p-sortable-column-icon {
+  color: #388c7c !important;
+}
+:host ::ng-deep .p-datatable .header .p-sortable-column .p-sortable-column-icon {
+  color: #388c7c !important;
+  margin-left: 0.5rem;
+  font-size: 10px;
+}
+
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-footer {
+  background: rgba(56, 140, 124, 0.1);
+  color: #388c7c;
+}
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-footer .show-moreCars {
+  background: rgba(56, 140, 124, 0.1);
+  padding: 0px 20px;
+  display: inline-block;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 13px;
+  float: right;
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-footer .show-moreCars:hover {
+  background: #388c7c;
+  padding: 0px 20px;
+  display: inline-block;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 13px;
+  float: right;
+  color: white;
+  cursor: pointer;
+}

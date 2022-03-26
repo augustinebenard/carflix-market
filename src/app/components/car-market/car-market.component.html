@@ -1,0 +1,114 @@
+
+   <!-- START  NAVBAR -->
+   <nav style="    background-color: #223b40;
+   box-shadow: 0 0 20px rgb(0 0 0 / 6%);
+   padding: 7px 0px;" class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-light mb-3" id="navbar">
+    <div class="container">
+        <a class="navbar-brand logo text-uppercase" href="index.html">
+            <img src="assets/images/logos.png" alt="" height="34" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="mdi mdi-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto" id="navbar-navlist">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Buy Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#carMarket">Car Markets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hireInspector">Hire Inspector</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#carflixApp">Carflix App</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#enrollment">Car Dealer Enroll</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#follow">Follow Us</a>
+                </li>
+
+            </ul>
+
+            <div>
+                <ul class="top-right text-end list-unstyled list-inline mb-0 nav-social d-none d-lg-block">
+                    <li class="list-inline-item"><a href="" class="facebook"><i class="mdi mdi-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item"><a href="" class="twitter"><i class="mdi mdi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="" class="instagram"><i class="mdi mdi-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END NAVBAR -->
+
+
+
+
+<section class="section bg-light mt-5" id="work">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-7">
+        <div class="title-box">
+          <h5 class="sub-title text-primary text-uppercase">Car Market</h5>
+          <h3 class="mt-2 fw-normal">View our top Car Markets</h3>
+          <div class="title-border"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card mt-4">
+      <p-table [value]="cars" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id" [rows]="10"
+        [showCurrentPageReport]="true" [loading]="loading"
+        styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" responsiveLayout="scroll"
+        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-gridlines" [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+
+        <ng-template pTemplate="header">
+          <tr class="header">
+            <th>Sketch</th>
+
+            <th pSortableColumn="carName">Name <p-sortIcon class="sortIcon" field="carName">
+              </p-sortIcon>
+            </th>
+            <th pSortableColumn="year">Year <p-sortIcon field="year">
+              </p-sortIcon>
+            </th>
+            <th pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-car>
+          <tr (click)="viewCar()" style="cursor: pointer;">
+            <td>
+              <img style="max-width: 60px;" [src]="'assets/images/cars/' + car.sketch" [alt]="car.carName" width="100"
+                class="shadow-4" />
+            </td>
+            <td><span>{{car.carName}}</span></td>
+            <td><span>{{car.year}}</span></td>
+            <td> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i style="color: red;font-weight: 600;"
+                  class="mdi mdi-trending-down"></i></span> </td>
+            <td> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i
+                  style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
+          </tr>
+        </ng-template>
+
+      </p-table>
+    </div>
+
+
+
+
+  </div>
+</section>

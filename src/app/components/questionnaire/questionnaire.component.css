@@ -1,12 +1,10 @@
-* {
-  margin: 0;
-  padding: 0
-}
+#car {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../../assets/images/instructor/carousel-bg-2.jpg) center center no-repeat;
+  background-size: cover;
+  min-height: 704px;
 
-html {
-  height: 100%
 }
-
 p {
   color: grey
 }
@@ -19,8 +17,9 @@ p {
 
 #msform {
   text-align: center;
-  position: relative;
-  margin-top: 20px
+  /* position: relative; */
+  /* margin-top: -26px; */
+  max-width: 100%;
 }
 
 #msform fieldset {
@@ -31,7 +30,8 @@ p {
   width: 100%;
   margin: 0;
   padding-bottom: 20px;
-  position: relative
+  position: relative;
+  margin-bottom: -20px;
 }
 
 .form-card {
@@ -128,7 +128,6 @@ float: right;
 .steps {
   font-size: 15px;
   color: gray;
-  margin-bottom: 19px;
   font-weight: normal;
   text-align: right
 }
@@ -414,10 +413,43 @@ border: 1px solid #388c7c;
 }
 
 :host ::ng-deep .p-card .p-card-content {
-  padding: 0.1rem 0;
+  padding: 1rem;
+  min-height: 500px;
+
 }
 
+:host ::ng-deep .p-card .p-card-body {
+  padding: 0.1rem
+}
 .for-checkbox-tools img{
   max-width: 50%;
   max-height: 70%;
+}
+@media (min-width: 1280px){
+.container {
+    max-width: 990px !important;
+
+
+}}
+
+
+
+@media (min-width: 896px){
+  .container {
+      max-width: 400px !important;
+
+
+  }}
+
+  @media (min-width: 896px){
+.container {
+    max-width: 640px !important;
+
+}}
+
+@media (min-width: 1024px){
+  .container {
+      max-width: 640px !important;
+  }
+
 }

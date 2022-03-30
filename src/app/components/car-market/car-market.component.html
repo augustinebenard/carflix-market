@@ -250,61 +250,59 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <div class="filter">
+          <span class="p-input-icon-left float-right">
+            <i class="pi pi-search"></i>
+            <input type="text" class="p-inputtext-sm" [(ngModel)]="filterText" name="filterText" pInputText
+              placeholder="Search e.g Toyota" />
+          </span>
+          <p-button label="Filter" styleClass=" p-button-sm" (click)="filterCarByBrand()"></p-button>
+        </div>
 
+      </div>
+
+    </div>
 
     <div class="card mt-4">
-      <p-table #dt1 [value]="cars" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
+      <p-table [value]="carList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
         [rows]="10" [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
-        responsiveLayout="scroll" [rowsPerPageOptions]="[10,25,50]" [paginator]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        responsiveLayout="scroll">
 
         <ng-template pTemplate="header">
           <tr class="header">
-            <th>#</th>
             <th>Sketch</th>
 
-            <th pSortableColumn="carName">Name <p-sortIcon class="sortIcon" field="carName">
+            <th pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
+              </p-sortIcon>
+            </th>
+            <th pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
               </p-sortIcon>
             </th>
             <th pSortableColumn="year">Year <p-sortIcon field="year">
               </p-sortIcon>
             </th>
-
-            <!-- <th pSortableColumn="year">Price <p-sortIcon field="year">
+            <th pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
               </p-sortIcon>
-            </th> -->
-            <th pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice"></p-sortIcon>
             </th>
 
-            <th pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice"></p-sortIcon>
+            <th pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
+              </p-sortIcon>
             </th>
           </tr>
         </ng-template>
 
         <ng-template pTemplate="body" let-car>
           <tr (click)="viewCar()" style="cursor: pointer;">
-            <td>{{1}}</td>
             <td>
-              <img style="height: 36px;width: 36px;border-radius: 12px;" [src]="'assets/images/cars/' + car.sketch"
-                [alt]="car.carName" width="100" class="shadow-4" />
+              <img style="height: 36px;width: 36px;border-radius: 12px;" [src]="'assets/images/cars/car1.jpg'"
+                [alt]="car.carModel" width="100" class="shadow-4" />
             </td>
-            <td><span>{{car.carName}}</span></td>
-            <td><span>{{car.year}}</span></td>
-
-            <!-- <td>
-              <div class="carPrice">
-                <p class="maxPrice"><i style="color: rgb(12, 208, 12);font-weight: 600;"
-                    class="mdi mdi-trending-up"></i>{{car.maxPrice | currency:'₦'}} <small
-                    style="    font-size: 8px;">max</small></p>
-
-                <div>
-                  <p class="minPrice"><i style="color: red;font-weight: 600;"
-                      class="mdi mdi-trending-down"></i>{{car.minPrice | currency:'₦'}} <small
-                      style="    font-size: 8px;">min</small></p>
-                </div>
-              </div>
-            </td> -->
-
+            <td><span>{{car.carCompany}}</span></td>
+            <td><span>{{car.carModel}}</span></td>
+            <td><span>{{car.carYear}}</span></td>
             <td> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i style="color: red;font-weight: 600;"
                   class="mdi mdi-trending-down"></i></span> </td>
             <td> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i

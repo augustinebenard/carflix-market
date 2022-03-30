@@ -136,22 +136,31 @@
 }
 
 
-/* .carPrice .maxPrice {
-  line-height: 1.5;
-  margin: 0px;
-  color: rgb(23, 25, 36);
-  font-weight: 500;
-}
-
-.carPrice .minPrice{
-
-    line-height: 1.5;
-    margin: 0px;
-    color: rgb(88, 102, 126);
-
-} */
 :host ::ng-deep .p-datatable-table .header> th {
   background: rgba(56, 140, 124, 0.1);
   color: #388c7c;
   font-size: 15px;
+}
+:host ::ng-deep .p-inputtext.p-inputtext-sm {
+  font-size: 0.875rem;
+  padding: 0.4rem 0.65625rem;
+}
+:host ::ng-deep .p-input-icon-left > .p-inputtext {
+  padding-left: 2.5rem;
+}
+
+:host ::ng-deep .p-input-icon-left > i:first-of-type {
+  left: 1rem;
+  color: #6c757d;
+}
+.filter{
+  float:right
+}
+:host ::ng-deep  .p-button.p-button-sm {
+  font-size: 0.875rem;
+  padding: 0.35rem 0.9rem;
+  margin-left: 12px;
+  background: #388c7c;
+color: #ffffff;
+border-color: #388c7c;
 }

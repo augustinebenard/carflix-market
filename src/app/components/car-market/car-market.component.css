@@ -136,11 +136,10 @@
 }
 
 
-.carPrice .maxPrice {
+/* .carPrice .maxPrice {
   line-height: 1.5;
   margin: 0px;
   color: rgb(23, 25, 36);
-  /* font-size: 14px; */
   font-weight: 500;
 }
 
@@ -149,9 +148,8 @@
     line-height: 1.5;
     margin: 0px;
     color: rgb(88, 102, 126);
-    /* font-size: 12px; */
 
-}
+} */
 :host ::ng-deep .p-datatable-table .header> th {
   background: rgba(56, 140, 124, 0.1);
   color: #388c7c;

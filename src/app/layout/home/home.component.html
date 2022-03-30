@@ -54,16 +54,16 @@
             <th pSortableColumn="year">Year <p-sortIcon field="year">
               </p-sortIcon>
             </th>
-            <th pSortableColumn="maxPrice">Price <p-sortIcon field="maxPrice">
+            <!-- <th pSortableColumn="maxPrice">Price <p-sortIcon field="maxPrice">
             </p-sortIcon>
-          </th>
-            <!-- <th pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
+          </th> -->
+            <th pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
               </p-sortIcon>
             </th>
 
             <th pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
               </p-sortIcon>
-            </th> -->
+            </th>
           </tr>
         </ng-template>
 
@@ -76,7 +76,7 @@
             </td>
             <td><span>{{car.carName}}</span></td>
             <td><span>{{car.year}}</span></td>
-            <td>
+            <!-- <td>
               <div class="carPrice">
                 <p class="maxPrice"><i style="color: rgb(12, 208, 12);font-weight: 600;"
                     class="mdi mdi-trending-up"></i>{{car.maxPrice | currency:'₦'}} <small style="    font-size: 8px;">max</small></p>
@@ -86,11 +86,11 @@
                       class="mdi mdi-trending-down"></i>{{car.minPrice | currency:'₦'}} <small style="    font-size: 8px;">min</small></p>
                 </div>
               </div>
-            </td>
-            <!-- <td> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i style="color: red;font-weight: 600;"
+            </td> -->
+            <td> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i style="color: red;font-weight: 600;"
                   class="mdi mdi-trending-down"></i></span> </td>
             <td> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i
-                  style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td> -->
+                  style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
           </tr>
         </ng-template>
 

@@ -2,7 +2,7 @@
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../../assets/images/instructor/carousel-bg-2.jpg) center center no-repeat;
   background-size: cover;
-  min-height: 704px;
+  min-height: 1000px;
 
 }
 p {

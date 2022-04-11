@@ -32,26 +32,43 @@
     border-bottom-color: var(--primary);
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {}
 
-  }
-
-  @media screen and (max-width: 640px) {
+@media screen and (max-width: 640px) {
     .py-5 {
         padding-top: 0rem !important;
         padding-bottom: 0rem !important;
     }
 
-  }
+}
 
-  :host ::ng-deep .p-inputtext {
+:host ::ng-deep .p-inputtext {
 
     width: 100% !important;
 }
 
 :host ::ng-deep .p-calendar {
-  position: relative;
-  display: flex;
-  /* display: inline-flex; */
-  /* max-width: 1000000%; */
+    position: relative;
+    display: flex;
+    /* display: inline-flex; */
+    /* max-width: 1000000%; */
+}
+
+:host ::ng-deep .p-multiselect {
+    min-width: 27rem;
+    width: 28rem;
+}
+
+
+:host ::ng-deep .multiselect-custom .p-multiselect-label {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+
+:host ::ng-deep {
+    @media screen and (max-width: 640px) {
+        .p-multiselect {
+            width: 100%;
+        }
+    }
 }

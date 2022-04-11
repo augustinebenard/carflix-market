@@ -39,35 +39,51 @@
     </div>
 
     <div class="card">
-      <p-table [value]="carList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id" [rows]="10"
-        [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
+      <p-table [value]="carList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
+        [rows]="10" [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
         responsiveLayout="scroll">
-
         <ng-template pTemplate="header">
           <tr class="header">
-            <th>Sketch</th>
-
-            <th pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
-            </p-sortIcon>
-          </th>
-            <th pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
+            <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
               </p-sortIcon>
             </th>
-            <th pSortableColumn="year">Year <p-sortIcon field="year">
+            <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
               </p-sortIcon>
             </th>
-            <th pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
+            <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
               </p-sortIcon>
             </th>
-
-            <th pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
+            <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
+              </p-sortIcon>
+            </th>
+            <th rowspan="3" pSortableColumn="year">Year <p-sortIcon field="year">
               </p-sortIcon>
             </th>
           </tr>
-        </ng-template>
 
+
+          <tr class="header">
+            <th colspan="2" class="text-center">Foreign Used</th>
+            <th rowspan="3" pSortableColumn="year" class="text-center">Nigeria use Price <p-sortIcon field="year">
+              </p-sortIcon>
+            </th>
+          </tr>
+          <tr class="subHeader ">
+            <th class="text-center" pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
+              </p-sortIcon>
+
+            </th>
+            <th class="text-center" pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
+              </p-sortIcon>
+            </th>
+
+          </tr>
+
+
+        </ng-template>
         <ng-template pTemplate="body" let-car>
           <tr (click)="viewCar()" style="cursor: pointer;">
+            <td><span>First</span> </td>
             <td>
               <img style="height: 36px;width: 36px;border-radius: 12px;" [src]="'assets/images/cars/car1.jpg'"
                 [alt]="car.carModel" width="100" class="shadow-4" />
@@ -75,16 +91,17 @@
             <td><span>{{car.carCompany}}</span></td>
             <td><span>{{car.carModel}}</span></td>
             <td><span>{{car.carYear}}</span></td>
-            <td> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i style="color: red;font-weight: 600;"
-                  class="mdi mdi-trending-down"></i></span> </td>
-            <td> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i
+            <td class="text-center"> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i
+                  style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
+            <td class="text-center"> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i
                   style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
+            <td class="text-center"> <span class="image-text text-center"> {{car.maxPrice | currency:'₦'}}</span> </td>
           </tr>
+
         </ng-template>
 
       </p-table>
     </div>
-
     <div class="row mt-3">
       <div class="col-lg-12">
         <div class="mt-4 text-center">

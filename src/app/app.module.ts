@@ -34,7 +34,6 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { CarMarketComponent } from './components/car-market/car-market.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +67,7 @@ import { CarMarketComponent } from './components/car-market/car-market.component
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
-    CardModule,InputMaskModule,ScrollTopModule
+    CardModule,InputMaskModule,ScrollTopModule,MultiSelectModule
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]

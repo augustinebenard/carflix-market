@@ -6,14 +6,14 @@
 
  //  Window scroll sticky class add
  function windowScroll() {
-     const navbar = document.getElementById("navbar");
+     const navbar = document.getElementById("navbar") || '';
      if (
          document.body.scrollTop >= 50 ||
          document.documentElement.scrollTop >= 50
      ) {
-         navbar.classList.add("nav-sticky");
+         navbar.classList.add("nav-sticky") || '';
      } else {
-         navbar.classList.remove("nav-sticky");
+         navbar.classList.remove("nav-sticky")|| '';
      }
  }
 
@@ -181,7 +181,7 @@
 			},
 			countDown:  function (){
 				if ($('.quiz-countdown').length > 0) {
-					var deadlineDate = new Date('apr 1, 2022 23:59:59').getTime();
+					var deadlineDate = new Date('apr 30, 2022 23:59:59').getTime();
 					var countdownDays = document.querySelector('.days .count-down-number');
 					var countdownHours = document.querySelector('.hours .count-down-number');
 					var countdownMinutes = document.querySelector('.minutes .count-down-number');

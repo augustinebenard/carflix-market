@@ -14,11 +14,13 @@
 
           <!-- <h2 id="heading">Questionaire</h2>
                 <p>Select an Option before going to the next step</p> -->
-          <form id="msform">
+          <form [formGroup]="form" id="msform">
             <div class="progress">
               <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
                 aria-valuemin="0" aria-valuemax="100"></div>
-            </div> <br> <!-- fieldsets -->
+            </div> <br>
+
+            <!-- QUESTION ONE -->
             <fieldset>
               <div class="form-card">
                 <div class="row">
@@ -26,7 +28,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 1 - 10</h2>
+                    <h2 class="steps">Step 1 - 12</h2>
                   </div>
 
                   <div class="container">
@@ -34,101 +36,29 @@
                       <h5 class="mb-3 " style="color:#999999;">Pick all the car brands you like?</h5>
                       <hr style="    margin-bottom: 25px; margin-right: 100px;margin-left: 100px;">
                     </div>
+
                     <div class="options text-center">
-                      <input class="checkbox-tools" type="checkbox" value="porche" (ngModel)="carBrand" name="carBrand"
-                        id="porche">
-                      <label class="for-checkbox-tools" for="porche">
-                        Porche
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Kia" (ngModel)="carBrand" name="carBrand"
-                        id="Kia">
-                      <label class="for-checkbox-tools" for="Kia">
-                        Kia
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Tesla" (ngModel)="carBrand" name="carBrand"
-                        id="Tesla">
-                      <label class="for-checkbox-tools" for="Tesla">
+                      <span *ngFor="let list of brandList" formArrayName="carBrand">
+                        <input class="checkbox-tools" type="checkbox" name="{{list.label}}" id="{{list.label}}"
+                          [value]="list.label" (change)="onBrandSelect($event)">
+                        <label class="for-checkbox-tools" for="{{list.label}}">
+                          {{list.label}}
+                        </label>
+                      </span>
 
-                        Tesla
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Mazda" (ngModel)="carBrand" name="carBrand"
-                        id="Mazda">
-                      <label class="for-checkbox-tools" for="Mazda">
-
-                        Mazda
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Toyota" (ngModel)="carBrand" name="carBrand"
-                        id="Toyota">
-                      <label class="for-checkbox-tools" for="Toyota">
-                        Toyota
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Honda" (ngModel)="carBrand" name="carBrand"
-                        id="Honda">
-                      <label class="for-checkbox-tools" for="Honda">
-                        Honda
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Jaguar" (ngModel)="carBrand" name="carBrand"
-                        id="Jaguar">
-                      <label class="for-checkbox-tools" for="Jaguar">
-                        Jaguar
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Mitsubishi" (ngModel)="carBrand"
-                        name="carBrand" id="Mitsubishi">
-                      <label class="for-checkbox-tools" for="Mitsubishi">
-                        Mitsubishi
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Volvo" (ngModel)="carBrand" name="carBrand"
-                        id="Volvo">
-                      <label class="for-checkbox-tools" for="Volvo">
-                        Volvo
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Lexus" (ngModel)="carBrand" name="carBrand"
-                        id="Lexus">
-                      <label class="for-checkbox-tools" for="Lexus">
-                        Lexus
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Peugeot" (ngModel)="carBrand" name="carBrand"
-                        id="Peugeot">
-                      <label class="for-checkbox-tools" for="Peugeot">
-                        Peugeot
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Skoda" (ngModel)="carBrand" name="carBrand"
-                        id="Skoda">
-                      <label class="for-checkbox-tools" for="Skoda">
-                        Skoda
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Mercedes" (ngModel)="carBrand"
-                        name="carBrand" id="Mercedes">
-                      <label class="for-checkbox-tools" for="Mercedes">
-                        Mercedes
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Suzuki" (ngModel)="carBrand" name="carBrand"
-                        id="Suzuki">
-                      <label class="for-checkbox-tools" for="Suzuki">
-                        Suzuki
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Hyundai" (ngModel)="carBrand" name="carBrand"
-                        id="Hyundai">
-                      <label class="for-checkbox-tools" for="Hyundai">
-                        Hyundai
-                      </label>
                     </div>
 
-
+                    <div class="text-center">
+                      <small class="error" *ngIf="(this.form.value.carBrand.length<=0 )&& (fn.carBrand.touched)">
+                        Car Brand is required, select atleast one value.
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next <i
-                  class="mdi mdi-arrow-right ps-1"></i></a>
+              <button class=" next btn btn-primary action-button btn-round"
+                [disabled]="this.form.value.carBrand.length<=0" value="Next">Next <i
+                  class="mdi mdi-arrow-right ps-1"></i></button>
             </fieldset>
             <!-- QUESTION TWO -->
             <fieldset>
@@ -138,7 +68,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 2 - 10</h2>
+                    <h2 class="steps">Step 2 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -147,50 +77,53 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="estimatedBudgetToggle($event)"
-                      [(ngModel)]="estimatedBudget" value="1m - 2m" name="estimatedBudget">
+                    <input type="radio" class="rad-input" formControlName="estimatedBudget" value="1m - 2m"
+                      name="estimatedBudget">
                     <div class="rad-design"></div>
                     <div class="rad-text">1m - 2m</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="estimatedBudgetToggle($event)"
-                      [(ngModel)]="estimatedBudget" value="2m - 5m" name="estimatedBudget">
+                    <input type="radio" class="rad-input" formControlName="estimatedBudget" value="2m - 5m"
+                      name="estimatedBudget">
                     <div class="rad-design"></div>
                     <div class="rad-text">2m - 5m</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="estimatedBudgetToggle($event)"
-                      [(ngModel)]="estimatedBudget" value="5m - 10m" name="estimatedBudget">
+                    <input type="radio" class="rad-input" formControlName="estimatedBudget" value="5m - 12m"
+                      name="estimatedBudget">
                     <div class="rad-design"></div>
-                    <div class="rad-text">5m - 10m</div>
+                    <div class="rad-text">5m - 12m</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="estimatedBudgetToggle($event)"
-                      [(ngModel)]="estimatedBudget" value="10m - 20m" name="estimatedBudget">
+                    <input type="radio" class="rad-input" formControlName="estimatedBudget" value="10m - 20m"
+                      name="estimatedBudget">
                     <div class="rad-design"></div>
                     <div class="rad-text">10m - 20m</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="estimatedBudgetToggle($event)"
-                      [(ngModel)]="estimatedBudget" value="20m - 50m" name="estimatedBudget">
+                    <input type="radio" class="rad-input" formControlName="estimatedBudget" value="20m - 50m"
+                      name="estimatedBudget">
                     <div class="rad-design"></div>
                     <div class="rad-text">20m - 50m</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="estimatedBudgetToggle($event)"
-                      [(ngModel)]="estimatedBudget" value="50m+" name="estimatedBudget">
+                    <input type="radio" class="rad-input" formControlName="estimatedBudget" value="50m+"
+                      name="estimatedBudget">
                     <div class="rad-design"></div>
                     <div class="rad-text">50m+</div>
                   </label>
                 </div>
 
+
               </div>
-              <a class=" next btn btn-primary action-button btn-round">Next <i class="mdi mdi-arrow-right ps-1"></i></a>
+              <button [disabled]="this.form.value.estimatedBudget==''"
+                class=" next btn btn-primary action-button btn-round">Next <i
+                  class="mdi mdi-arrow-right ps-1"></i></button>
 
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous"><i
                   class="mdi mdi-arrow-left ps-1"></i> Previous </a>
@@ -206,7 +139,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 3 - 10</h2>
+                    <h2 class="steps">Step 3 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -215,36 +148,31 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="ageToggle($event)" [(ngModel)]="ageRange"
-                      value="16 - 18" name="ageRange">
+                    <input type="radio" class="rad-input" formControlName="ageRange" value="16 - 18" name="ageRange">
                     <div class="rad-design"></div>
                     <div class="rad-text">16 - 18</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="ageToggle($event)" [(ngModel)]="ageRange"
-                      value="18 - 24" name="ageRange">
+                    <input type="radio" class="rad-input" formControlName="ageRange" value="18 - 24" name="ageRange">
                     <div class="rad-design"></div>
                     <div class="rad-text">18 - 24</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="ageToggle($event)" [(ngModel)]="ageRange"
-                      value="24 - 30" name="ageRange">
+                    <input type="radio" class="rad-input" formControlName="ageRange" value="24 - 30" name="ageRange">
                     <div class="rad-design"></div>
                     <div class="rad-text">24 - 30</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="ageToggle($event)" [(ngModel)]="ageRange"
-                      value="30 - 40" name="ageRange">
+                    <input type="radio" class="rad-input" formControlName="ageRange" value="30 - 40" name="ageRange">
                     <div class="rad-design"></div>
                     <div class="rad-text">30 - 40</div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="ageToggle($event)" [(ngModel)]="ageRange"
-                      value="40+" name="ageRange">
+                    <input type="radio" class="rad-input" formControlName="ageRange" value="40+" name="ageRange">
                     <div class="rad-design"></div>
                     <div class="rad-text">40+</div>
                   </label>
@@ -252,9 +180,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.ageRange==''" class=" next btn btn-primary action-button btn-round"
+                value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
 
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
@@ -270,7 +199,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 4 - 10</h2>
+                    <h2 class="steps">Step 4 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -280,22 +209,22 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="spendOnFuelToggle($event)" [(ngModel)]="spendOnFuel"
-                      value="Less than ₦2,000" name="spendOnFuel">
+                    <input type="radio" class="rad-input" formControlName="spendOnFuel" value="Less than ₦2,000"
+                      name="spendOnFuel">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than ₦2,000 </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="spendOnFuelToggle($event)" [(ngModel)]="spendOnFuel"
-                      value="Less than ₦5,000" name="spendOnFuel">
+                    <input type="radio" class="rad-input" formControlName="spendOnFuel" value="Less than ₦5,000"
+                      name="spendOnFuel">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than ₦5,000 </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="spendOnFuelToggle($event)" [(ngModel)]="spendOnFuel"
-                      value="Less than ₦10,000" name="spendOnFuel">
+                    <input type="radio" class="rad-input" formControlName="spendOnFuel" value="Less than ₦10,000"
+                      name="spendOnFuel">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than ₦10,000 </div>
                   </label>
@@ -303,9 +232,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.spendOnFuel==''" class=" next btn btn-primary action-button btn-round"
+                value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
@@ -320,7 +250,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 5 - 10</h2>
+                    <h2 class="steps">Step 5 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -330,22 +260,22 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="dailyDrivingHrsToggle($event)"
-                      [(ngModel)]="dailyDrivingHrs" value="Less than 2Hrs" name="dailyDrivingHrs">
+                    <input type="radio" class="rad-input" formControlName="dailyDrivingHrs" value="Less than 2Hrs"
+                      name="dailyDrivingHrs">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than 2Hrs </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="dailyDrivingHrsToggle($event)"
-                      [(ngModel)]="dailyDrivingHrs" value="Less than 6Hrs" name="dailyDrivingHrs">
+                    <input type="radio" class="rad-input" formControlName="dailyDrivingHrs" value="Less than 6Hrs"
+                      name="dailyDrivingHrs">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than 6Hrs </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="dailyDrivingHrsToggle($event)"
-                      [(ngModel)]="dailyDrivingHrs" value="Above 6Hrs" name="dailyDrivingHrs">
+                    <input type="radio" class="rad-input" formControlName="dailyDrivingHrs" value="Above 6Hrs"
+                      name="dailyDrivingHrs">
                     <div class="rad-design"></div>
                     <div class="rad-text">Above 6Hrs </div>
                   </label>
@@ -353,9 +283,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.dailyDrivingHrs==''"
+                class=" next btn btn-primary action-button btn-round" value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
@@ -370,7 +301,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 6 - 10</h2>
+                    <h2 class="steps">Step 6 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -380,39 +311,39 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="maritalStatusToggle($event)"
-                      [(ngModel)]="maritalStatus" value="Yes" name="maritalStatus">
+                    <input type="radio" class="rad-input" (click)="maritalStatusToggle($event)"
+                      formControlName="maritalStatus" value="Yes" name="maritalStatus">
                     <div class="rad-design"></div>
                     <div class="rad-text">Yes </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="maritalStatusToggle($event)"
-                      [(ngModel)]="maritalStatus" value="No" name="maritalStatus">
+                    <input type="radio" class="rad-input" (click)="maritalStatusToggle($event)"
+                      formControlName="maritalStatus" value="No" name="maritalStatus">
                     <div class="rad-design"></div>
                     <div class="rad-text">No </div>
                   </label>
                   <!-- IF MARRIED -->
-                  <div class="haveChildren" *ngIf="married">
+                  <div class="haveChildren" *ngIf="married==true">
                     <h5 class="mb-3 " style="color:#999999;">How many children?
                     </h5>
                     <label class="rad-label">
-                      <input type="radio" class="rad-input" (change)="noOfChildrenToggle($event)"
-                        [(ngModel)]="noOfChildren" value="Less than 3" name="noOfChildren">
+                      <input type="radio" class="rad-input" formControlName="noOfChildren" value="Less than 3"
+                        name="noOfChildren">
                       <div class="rad-design"></div>
                       <div class="rad-text">Less than 3 </div>
                     </label>
 
                     <label class="rad-label">
-                      <input type="radio" class="rad-input" (change)="noOfChildrenToggle($event)"
-                        [(ngModel)]="noOfChildren" value="Less than 5" name="noOfChildren">
+                      <input type="radio" class="rad-input" formControlName="noOfChildren" value="Less than 5"
+                        name="noOfChildren">
                       <div class="rad-design"></div>
                       <div class="rad-text">Less than 5 </div>
                     </label>
 
                     <label class="rad-label">
-                      <input type="radio" class="rad-input" (change)="noOfChildrenToggle($event)"
-                        [(ngModel)]="noOfChildren" value="Above 5" name="noOfChildren">
+                      <input type="radio" class="rad-input" formControlName="noOfChildren" value="Above 5"
+                        name="noOfChildren">
                       <div class="rad-design"></div>
                       <div class="rad-text">Above 5</div>
                     </label>
@@ -420,9 +351,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.maritalStatus==''"
+                class=" next btn btn-primary action-button btn-round" value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
@@ -437,7 +369,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 7 - 10</h2>
+                    <h2 class="steps">Step 7 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -447,22 +379,22 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="monthyMaintainanceCostToggle($event)"
-                      [(ngModel)]="monthyMaintainanceCost" value="Less than ₦10,000" name="monthyMaintainanceCost">
+                    <input type="radio" class="rad-input" formControlName="monthyMaintainanceCost"
+                      value="Less than ₦10,000" name="monthyMaintainanceCost">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than ₦10,000 </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="monthyMaintainanceCostToggle($event)"
-                      [(ngModel)]="monthyMaintainanceCost" value="Less than ₦20,000" name="monthyMaintainanceCost">
+                    <input type="radio" class="rad-input" formControlName="monthyMaintainanceCost"
+                      value="Less than ₦20,000" name="monthyMaintainanceCost">
                     <div class="rad-design"></div>
                     <div class="rad-text">Less than ₦20,000 </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="monthyMaintainanceCostToggle($event)"
-                      [(ngModel)]="monthyMaintainanceCost" value="₦25,000+" name="monthyMaintainanceCost">
+                    <input type="radio" class="rad-input" formControlName="monthyMaintainanceCost" value="₦25,000+"
+                      name="monthyMaintainanceCost">
                     <div class="rad-design"></div>
                     <div class="rad-text">₦25,000+ </div>
                   </label>
@@ -470,9 +402,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.monthyMaintainanceCost==''"
+                class=" next btn btn-primary action-button btn-round" value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
@@ -487,7 +420,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 8 - 10</h2>
+                    <h2 class="steps">Step 8 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -497,22 +430,21 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="carToBuyToggle($event)" [(ngModel)]="carToBuy"
-                      value="NEW" name="carToBuy">
+                    <input type="radio" class="rad-input" formControlName="carToBuy" value="NEW" name="carToBuy">
                     <div class="rad-design"></div>
                     <div class="rad-text">NEW </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="carToBuyToggle($event)" [(ngModel)]="carToBuy"
-                      value="Foreign Used" name="carToBuy">
+                    <input type="radio" class="rad-input" formControlName="carToBuy" value="Foreign Used"
+                      name="carToBuy">
                     <div class="rad-design"></div>
                     <div class="rad-text">Foreign Used </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="carToBuyToggle($event)" [(ngModel)]="carToBuy"
-                      value="Nigerian used" name="carToBuy">
+                    <input type="radio" class="rad-input" formControlName="carToBuy" value="Nigerian used"
+                      name="carToBuy">
                     <div class="rad-design"></div>
                     <div class="rad-text">Nigerian used </div>
                   </label>
@@ -520,9 +452,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.carToBuy==''" class=" next btn btn-primary action-button btn-round"
+                value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
@@ -537,7 +470,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 9 - 10</h2>
+                    <h2 class="steps">Step 9 - 12</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -547,22 +480,19 @@
                 </div>
                 <div class="options text-center">
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="noOfSeatsToggle($event)" [(ngModel)]="noOfSeats"
-                      value="2 Seats" name="noOfSeats">
+                    <input type="radio" class="rad-input" formControlName="noOfSeats" value="2 Seats" name="noOfSeats">
                     <div class="rad-design"></div>
                     <div class="rad-text">2 Seats </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="noOfSeatsToggle($event)" [(ngModel)]="noOfSeats"
-                      value="5 Seats" name="noOfSeats">
+                    <input type="radio" class="rad-input" formControlName="noOfSeats" value="5 Seats" name="noOfSeats">
                     <div class="rad-design"></div>
                     <div class="rad-text">5 Seats </div>
                   </label>
 
                   <label class="rad-label">
-                    <input type="radio" class="rad-input" (change)="noOfSeatsToggle($event)" [(ngModel)]="noOfSeats"
-                      value="8 Seats" name="noOfSeats">
+                    <input type="radio" class="rad-input" formControlName="noOfSeats" value="8 Seats" name="noOfSeats">
                     <div class="rad-design"></div>
                     <div class="rad-text">8 Seats</div>
                   </label>
@@ -570,9 +500,10 @@
                 </div>
 
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next
+              <button [disabled]="this.form.value.noOfSeats==''" class=" next btn btn-primary action-button btn-round"
+                value="Next">Next
                 <i class="mdi mdi-arrow-right ps-1"></i>
-              </a>
+              </button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
@@ -587,7 +518,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 1 - 10</h2>
+                    <h2 class="steps">Step 10 - 12</h2>
                   </div>
 
                   <div class="container">
@@ -595,110 +526,128 @@
                       <h5 class="mb-3 " style="color:#999999;">Tell us the things you love in a car?</h5>
                       <hr style="    margin-bottom: 25px; margin-right: 100px;margin-left: 100px;">
                     </div>
+
                     <div class="options text-center">
-                      <input class="checkbox-tools" type="checkbox" value="Fast" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="Fast">
-                      <label class="for-checkbox-tools" for="Fast">
-                        Fast
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Luxury feature"
-                        (ngModel)="thingsYouLoveInCar" name="thingsYouLoveInCar" id="Luxury">
-                      <label class="for-checkbox-tools" for="Luxury">
-                        Luxury
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Neat" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="Neat">
-                      <label class="for-checkbox-tools" for="Neat">
-
-                        Neat
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Simple" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="Simple">
-                      <label class="for-checkbox-tools" for="Simple">
-
-                        Simple
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Flashy" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="Flashy">
-                      <label class="for-checkbox-tools" for="Flashy">
-                        Flashy
-                      </label>
-                      <input class="checkbox-tools" type="checkbox" value="Big Tires" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="BigTires">
-                      <label class="for-checkbox-tools" for="BigTires">
-                        Big Tires
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="SUV" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="SUV">
-                      <label class="for-checkbox-tools" for="SUV">
-                        SUV
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Sedan" (ngModel)="thingsYouLoveInCar"
-                        name="thingsYouLoveInCar" id="Sedan">
-                      <label class="for-checkbox-tools" for="Sedan">
-                        Sedan
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Pandenomic roof" (ngModel)="carBrand"
-                        name="carBrand" id="Pandenomicroof">
-                      <label class="for-checkbox-tools" for="Pandenomicroof">
-                        Pandenomic roof
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Sensors" (ngModel)="carBrand" name="carBrand"
-                        id="Sensors">
-                      <label class="for-checkbox-tools" for="Sensors">
-                        Sensors
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Touch Start" (ngModel)="carBrand"
-                        name="carBrand" id="TouchStart">
-                      <label class="for-checkbox-tools" for="TouchStart">
-                        Touch Start
-                      </label>
-
-                      <input class="checkbox-tools" type="checkbox" value="Thumb Start" (ngModel)="carBrand"
-                        name="carBrand" id="ThumbStart">
-                      <label class="for-checkbox-tools" for="ThumbStart">
-                        Thumb Start
-                      </label>
-
-
+                      <span *ngFor="let list of thingsYouLoveInCarList" formArrayName="thingsYouLoveInCar">
+                        <input class="checkbox-tools" type="checkbox" name="{{list.label}}" id="{{list.label}}"
+                          [value]="list.label" (change)="onThingYouLoveSelect($event)">
+                        <label class="for-checkbox-tools" for="{{list.label}}">
+                          {{list.label}}
+                        </label>
+                      </span>
                     </div>
-
 
                   </div>
                 </div>
               </div>
-              <a class=" next btn btn-primary action-button btn-round" value="Next">Next <i
-                  class="mdi mdi-arrow-right ps-1"></i></a>
+              <button [disabled]="this.form.value.thingsYouLoveInCar==''"
+                class="next btn btn-primary action-button btn-round" value="Next">Next <i
+                  class="mdi mdi-arrow-right ps-1"></i></button>
               <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
             </fieldset>
+
+            <!--ENTER CONTACT DETAILS PAGE -->
+
+            <fieldset>
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 11 - 12</h2>
+                  </div>
+
+                  <div class="container p-4">
+                    <h2 class="text-center mb-4">Enter Contact Details</h2>
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="respondentName" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                      <select style="background-color: #eceff1;font-size: 16px;
+                      letter-spacing: 1px;border: 1px solid #ccc;font-family: montserrat;" id="my-select"
+                        class="form-control form-select" formControlName="respondentContactType">
+                        <option>Select Contact Type</option>
+                        <option value="Whatsapp"> Whatsapp <i style="color: black;" class="mdi mdi-whatsapp"></i>
+                        </option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="Email">Email</option>
+                        <option value="Phone Number">Phone Number</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="respondentContact"
+                        placeholder="Enter Contact">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="respondentAddress"
+                        placeholder="Enter Address">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <button
+                [disabled]="(this.form.value.respondentName=='') && (this.form.value.respondentContactType=='') && (this.form.value.respondentContact=='')"
+                class="next btn btn-primary action-button btn-round" value="Next"
+                (click)="submitQuestionnaires()">Submit <i class="mdi mdi-content-save-all ps-1"></i></button>
+              <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
+                <i class="mdi mdi-arrow-left ps-1"></i> Previous
+              </a>
+            </fieldset>
+
 
             <!-- FINISH PAGE -->
             <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
-                    <h2 class="fs-title">Finish:</h2>
+                    <h2 class="fs-title"></h2>
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 10 - 10</h2>
+                    <h2 class="steps">Step 12 - 12</h2>
                   </div>
                 </div> <br><br>
-                <h2 class="text-center" style="color:#40bed2;font-weight:600"><strong>SUCCESS !</strong></h2> <br>
+                <h6 class="text-center mb-5 text-lead " style="font-weight:600"><strong>Your Response has been submitted
+                    successfully!</strong></h6> <br>
                 <div class="row justify-content-center">
                   <div style="text-align: center;font-size: 70px;color: #388c7c;" class="col-3"> <i
                       class="mdi mdi-checkbox-marked-circle-outline"></i> </div>
                 </div> <br><br>
                 <div class="row justify-content-center">
                   <div class="col-7 text-center">
-                    <h5 class=" text-center" style="color:#40bed2;font-weight:400">Your Response has been submitted
-                      successfully</h5>
+                    <h5 class=" text-center" style="font-weight:400">
+                      <p class="text-lead">You can follow us via: </p>
+                    </h5>
+                    <div class="contact-info row px-xl-5 px-sm-4 px-3">
+
+                      <div class="col-3 px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-twitter"></span>
+
+                        </a>
+                      </div>
+                      <div class="col-3 me-auto px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-facebook"></span>
+                        </a>
+                      </div>
+
+                      <div class="col-3 me-auto px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-instagram"></span>
+                        </a>
+                      </div>
+
+                      <div class="col-3 me-auto px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-whatsapp"></span>
+                        </a>
+                      </div>
+
+                    </div>
                     <div class="pt-4 mt-3 home-button">
                       <a (click)="goHome()" class="btn btn-primary btn-round text-uppercase">Back Home
                         <span class="home-btn"><i class="mdi mdi-chevron-left text-center"></i></span>

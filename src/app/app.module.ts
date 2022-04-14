@@ -32,8 +32,10 @@ import {CardModule} from 'primeng/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
 import {ScrollTopModule} from 'primeng/scrolltop';
-import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { CarMarketComponent } from './components/car-market/car-market.component';
+import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,7 @@ import { CarMarketComponent } from './components/car-market/car-market.component
     RadioButtonModule,
     InputNumberModule,
     ConfirmDialogModule,
-    InputTextareaModule,
+    InputTextareaModule,ToastrModule.forRoot(),NgxSpinnerModule,
     CardModule,InputMaskModule,ScrollTopModule,MultiSelectModule
   ],
   providers: [MessageService, ConfirmationService],

@@ -91,11 +91,11 @@
             <td><span>{{car.carCompany}}</span></td>
             <td><span>{{car.carModel}}</span></td>
             <td><span>{{car.carYear}}</span></td>
-            <td class="text-center"> <span class="image-text"> {{car.minPrice | currency:'₦'}} <i
+            <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
                   style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
-            <td class="text-center"> <span class="image-text"> {{car.maxPrice | currency:'₦'}} <i
+            <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} <i
                   style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
-            <td class="text-center"> <span class="image-text text-center"> {{car.maxPrice | currency:'₦'}}</span> </td>
+            <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice | currency:'₦'}}</span> </td>
           </tr>
 
         </ng-template>

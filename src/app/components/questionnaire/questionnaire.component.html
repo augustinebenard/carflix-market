@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="text-center">
+        <div *ngIf="!submitted" class="text-center">
           <div class="title-box p-3" style="color: white;">
             <h5 style="padding: 7px;" class="sub-title text-primary text-uppercase">Questionnaire</h5>
             <h3 class="mt-2 fw-normal">Select an Option before going to the next step</h3>
@@ -15,7 +15,7 @@
           <!-- <h2 id="heading">Questionaire</h2>
                 <p>Select an Option before going to the next step</p> -->
           <form [formGroup]="form" id="msform">
-            <div class="progress">
+            <div *ngIf="!submitted" class="progress">
               <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
                 aria-valuemin="0" aria-valuemax="100"></div>
             </div> <br>
@@ -28,7 +28,7 @@
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 1 - 12</h2>
+                    <h2 *ngIf="submitted" class="steps">Step 1 - 11</h2>
                   </div>
 
                   <div class="container">
@@ -60,15 +60,16 @@
                 [disabled]="this.form.value.carBrand.length<=0" value="Next">Next <i
                   class="mdi mdi-arrow-right ps-1"></i></button>
             </fieldset>
+
             <!-- QUESTION TWO -->
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 2 - 12</h2>
+                    <h2 class="steps">Step 2 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -132,14 +133,14 @@
 
             <!-- QUESTION THREE -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 3 - 12</h2>
+                    <h2 class="steps">Step 3 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -192,14 +193,14 @@
 
             <!-- QUESTION FOUR -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 4 - 12</h2>
+                    <h2 class="steps">Step 4 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -243,14 +244,14 @@
 
             <!-- QUESTION FIVE -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 5 - 12</h2>
+                    <h2 class="steps">Step 5 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -294,14 +295,14 @@
 
             <!-- QUESTION SIX -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 6 - 12</h2>
+                    <h2 class="steps">Step 6 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -362,14 +363,14 @@
 
             <!-- QUESTION SEVEN -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 7 - 12</h2>
+                    <h2 class="steps">Step 7 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -413,14 +414,14 @@
 
             <!-- QUESTION EIGHT -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 8 - 12</h2>
+                    <h2 class="steps">Step 8 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -463,14 +464,14 @@
 
             <!-- QUESTION NINE -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 9 - 12</h2>
+                    <h2 class="steps">Step 9 - 11</h2>
                   </div>
                 </div>
                 <div class="question text-center">
@@ -511,14 +512,14 @@
 
             <!-- QUESTION TEN -->
 
-            <fieldset>
+            <fieldset >
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 10 - 12</h2>
+                    <h2 class="steps">Step 10 - 11</h2>
                   </div>
 
                   <div class="container">
@@ -551,13 +552,14 @@
             <!--ENTER CONTACT DETAILS PAGE -->
 
             <fieldset>
-              <div class="form-card">
+               <!--ENTER CONTACT DETAILS PAGE -->
+              <div *ngIf="!submitted" class="form-card">
                 <div class="row">
                   <div class="col-7">
 
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 11 - 12</h2>
+                    <h2 class="steps">Step 11 - 11</h2>
                   </div>
 
                   <div class="container p-4">
@@ -589,25 +591,83 @@
                   </div>
                 </div>
               </div>
-              <button
+              <button *ngIf="!submitted"
                 [disabled]="(this.form.value.respondentName=='') && (this.form.value.respondentContactType=='') && (this.form.value.respondentContact=='')"
-                class="next btn btn-primary action-button btn-round" value="Next"
-                (click)="submitQuestionnaires()">Submit <i class="mdi mdi-content-save-all ps-1"></i></button>
-              <a class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
+                class="btn btn-primary action-button btn-round" (click)="submitQuestionnaires()">Submit <i
+                  class="mdi mdi-content-save-all ps-1"></i></button>
+
+              <a *ngIf="!submitted" class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
+
+
+  <!-- FINISH PAGE -->
+  <div *ngIf="submitted" class="form-card mt-5">
+    <div class="row">
+      <div class="col-7">
+        <h2 class="fs-title"></h2>
+      </div>
+      <div class="col-5">
+        <!-- <h2 class="steps">Step 12 - 12</h2> -->
+      </div>
+    </div> <br><br>
+    <h6 class="text-center mb-5 text-lead " style="font-weight:600"><strong>Your Response has been submitted
+        successfully!</strong></h6> <br>
+    <div class="row justify-content-center">
+      <div style="text-align: center;font-size: 70px;color: #388c7c;" class="col-3"> <i
+          class="mdi mdi-checkbox-marked-circle-outline"></i> </div>
+    </div> <br><br>
+    <div class="row justify-content-center">
+      <div class="col-7 text-center">
+        <h5 class=" text-center" style="font-weight:400">
+          <p class="text-lead">You can follow us via: </p>
+        </h5>
+        <div class="contact-info row px-xl-5 px-sm-4 px-3">
+
+          <div class="col-3 px-1">
+            <a class="btn btn-outline-light w-100">
+              <span class="text-lg fab fa-twitter"></span>
+
+            </a>
+          </div>
+          <div class="col-3 me-auto px-1">
+            <a class="btn btn-outline-light w-100">
+              <span class="text-lg fab fa-facebook"></span>
+            </a>
+          </div>
+
+          <div class="col-3 me-auto px-1">
+            <a class="btn btn-outline-light w-100">
+              <span class="text-lg fab fa-instagram"></span>
+            </a>
+          </div>
+
+          <div class="col-3 me-auto px-1">
+            <a class="btn btn-outline-light w-100">
+              <span class="text-lg fab fa-whatsapp"></span>
+            </a>
+          </div>
+
+        </div>
+        <div class="pt-4 mt-3 home-button">
+          <a (click)="goHome()" class="btn btn-primary btn-round text-uppercase">Back Home
+            <span class="home-btn"><i class="mdi mdi-chevron-left text-center"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
             </fieldset>
 
 
             <!-- FINISH PAGE -->
-            <fieldset>
-              <div class="form-card">
+            <!-- <fieldset>
+              <div *ngIf="submitted" class="form-card">
                 <div class="row">
                   <div class="col-7">
                     <h2 class="fs-title"></h2>
                   </div>
                   <div class="col-5">
-                    <h2 class="steps">Step 12 - 12</h2>
                   </div>
                 </div> <br><br>
                 <h6 class="text-center mb-5 text-lead " style="font-weight:600"><strong>Your Response has been submitted
@@ -656,7 +716,7 @@
                   </div>
                 </div>
               </div>
-            </fieldset>
+            </fieldset> -->
           </form>
 
         </p-card>
@@ -668,3 +728,7 @@
 
 
 </div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#388c7c" type="ball-clip-rotate-multiple"
+  [fullScreen]="true">
+  <p style="color: white"> Saving Your Data... </p>
+</ngx-spinner>

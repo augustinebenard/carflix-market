@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
   getTopCars() {
     this.loading = true
     this.service.getTopBrandCars().subscribe((res: any) => {
+      console.log(res);
+
       this.carList = res.data
       this.loading = false
 

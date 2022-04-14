@@ -1,6 +1,9 @@
+import { ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 declare const questionnaireStepper: any;
 @Component({
   selector: 'app-questionnaire',
@@ -39,7 +42,7 @@ export class QuestionnaireComponent implements OnInit {
     { id: 14, label: 'Suzuki', isChecked: false },
     { id: 15, label: 'Hyundai', isChecked: false },
   ];
-  thingsYouLoveInCarList:Array<any>=[
+  thingsYouLoveInCarList: Array<any> = [
     { id: 1, label: 'Fast' },
     { id: 2, label: 'Luxury' },
     { id: 3, label: 'Neat' },
@@ -61,8 +64,8 @@ export class QuestionnaireComponent implements OnInit {
   checkedIDs: any = [];
   parentSelector!: boolean;
   copyBrandList!: [];
-
-  constructor(private router: Router, private fb: FormBuilder) {
+  submitted:boolean=false
+  constructor(private router: Router,private spinner:NgxSpinnerService, private service: ApiService, private toastr: ToastrService, private fb: FormBuilder) {
     this.form = this.fb.group({
       estimatedBudget: ['', [Validators.required]],
       ageRange: ['', [Validators.required]],
@@ -77,8 +80,8 @@ export class QuestionnaireComponent implements OnInit {
       respondentContactType: ['Select Contact Type', [Validators.required]],
       respondentContact: ['', [Validators.required]],
       respondentAddress: ['', [Validators.required]],
-      thingsYouLoveInCar: new FormControl([],[Validators.required]),
-      carBrand: new FormControl([],[Validators.required]),
+      thingsYouLoveInCar: new FormControl([], [Validators.required]),
+      carBrand: new FormControl([], [Validators.required]),
 
     })
 
@@ -109,7 +112,7 @@ export class QuestionnaireComponent implements OnInit {
 
   }
 
-  onThingYouLoveSelect(e:any){
+  onThingYouLoveSelect(e: any) {
     if (e.target.checked) {
       this.form.value.thingsYouLoveInCar.push(e.target.value);
       return;
@@ -125,8 +128,26 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   submitQuestionnaires() {
-
+    this.spinner.show()
     console.log(this.form.value);
+    this.service.submitQuestionnaire(this.form.value).subscribe((res: any) => {
+      console.log(res);
+      this.spinner.hide()
+      if (res.message=="Success") {
+        this.submitted=true
+        this.toastr.success('', "Your data is submitted successfully!")
+      }
+      else{
+        this.toastr.error('',res.message)
+      }
+
+    },(error:any)=>{
+      this.spinner.hide()
+      console.log(error);
+
+    }
+
+    )
 
   }
 

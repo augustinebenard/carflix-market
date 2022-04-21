@@ -21,6 +21,13 @@ filterCarTopCars(filter:any):any{
 submitQuestionnaire(data:any){
   return this.http.post(`${this.baseUrl}/supports/questionnaire`,data)
 }
+getInspectionService():any{
+  return this.http.get(`${this.baseUrl}/settings/inspection/list`)
+}
+
+createEmailReminder(data:any){
+  return this.http.post(`${this.baseUrl}/supports/reminder/create`,data)
+}
 
 
 

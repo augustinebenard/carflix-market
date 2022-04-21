@@ -1,3 +1,4 @@
+import { ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -9,16 +10,26 @@ import { Component, OnInit } from '@angular/core';
 export class HireInspectorComponent implements OnInit {
   date!:Date
   selectedServices!: any[];
-  listOfServices!: { name: string }[];
-  constructor() { }
+  listOfServices!: any[];
+  constructor(private service:ApiService) { }
 
   ngOnInit(): void {
-    this.listOfServices = [
-      {name: 'Inspect Car'},
-      {name: 'Drive and Deliver car to you'},
-      {name: 'Service Engine'}
-  
-  ];
+
+  this.getInpectionService()
   }
+
+getInpectionService(){
+  this.service.getInspectionService().subscribe((res:any)=>{
+    console.log(res);
+    this.listOfServices=res.data
+
+  },(error:any)=>{
+    console.log(error);
+
+  }
+
+
+  )
+}
 
 }

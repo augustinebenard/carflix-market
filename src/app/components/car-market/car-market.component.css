@@ -164,3 +164,17 @@
 color: #ffffff;
 border-color: #388c7c;
 }
+
+:host ::ng-deep .p-datatable-table .subHeader> th {
+  background: #e1ecee;
+  color: #388c7d;
+  font-size: 15px;
+}
+:host ::ng-deep .p-datatable .subHeader  .p-sortable-column .p-sortable-column-icon{
+  color: #388c7c !important;
+}
+:host ::ng-deep .p-datatable .subHeader .p-sortable-column .p-sortable-column-icon {
+  color: #388c7c !important;
+  margin-left: 0.5rem;
+  font-size: 10px;
+}

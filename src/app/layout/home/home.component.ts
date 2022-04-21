@@ -1,3 +1,5 @@
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,8 +19,9 @@ export class HomeComponent implements OnInit {
   selectedCars!: any;
   loading: boolean = true;
   idk!: string;
+  reminderEmail: any;
 
-  constructor(private service: ApiService, private messageService: MessageService, private confirmationService: ConfirmationService, private router: Router) { }
+  constructor(private service: ApiService,private spinner:NgxSpinnerService, private toastr: ToastrService, private messageService: MessageService, private confirmationService: ConfirmationService, private router: Router) { }
 
   ngOnInit() {
 
@@ -35,7 +38,7 @@ export class HomeComponent implements OnInit {
       this.carList = res.data
       this.loading = false
 
-    },(error:any)=>{
+    }, (error: any) => {
       console.log(error);
 
     }
@@ -56,5 +59,25 @@ export class HomeComponent implements OnInit {
 
   hireInspector() {
     this.router.navigate(['hireInspector'])
+  }
+
+  createReminder() {
+    this.spinner.show()
+    var obj = {
+      email: this.reminderEmail
+    }
+    this.service.createEmailReminder(obj).subscribe((res: any) => {
+      console.log(res);
+      this.spinner.hide()
+      if (res.message == "Success") {
+
+        this.toastr.success('', "Email reminder for " + this.reminderEmail + " was created successfully")
+        this.reminderEmail=""
+      }
+      else{
+        this.toastr.error('',res.message)
+      }
+    })
+
   }
 }

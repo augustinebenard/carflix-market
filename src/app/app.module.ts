@@ -44,7 +44,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HomeComponent,
     HireInspectorComponent,
     QuestionnaireComponent,
-    CarMarketComponent
+    CarMarketComponent,
   ],
   imports: [
     BrowserModule,

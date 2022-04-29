@@ -64,8 +64,15 @@ export class QuestionnaireComponent implements OnInit {
   checkedIDs: any = [];
   parentSelector!: boolean;
   copyBrandList!: [];
-  submitted:boolean=false
-  constructor(private router: Router,private spinner:NgxSpinnerService, private service: ApiService, private toastr: ToastrService, private fb: FormBuilder) {
+  submitted: boolean = false
+  questionList = [
+    {
+
+    }
+  ]
+
+
+  constructor(private router: Router, private spinner: NgxSpinnerService, private service: ApiService, private toastr: ToastrService, private fb: FormBuilder) {
     this.form = this.fb.group({
       estimatedBudget: ['', [Validators.required]],
       ageRange: ['', [Validators.required]],
@@ -133,15 +140,15 @@ export class QuestionnaireComponent implements OnInit {
     this.service.submitQuestionnaire(this.form.value).subscribe((res: any) => {
       console.log(res);
       this.spinner.hide()
-      if (res.message=="Success") {
-        this.submitted=true
+      if (res.message == "Success") {
+        this.submitted = true
         this.toastr.success('', "Your data is submitted successfully!")
       }
-      else{
-        this.toastr.error('',res.message)
+      else {
+        this.toastr.error('', res.message)
       }
 
-    },(error:any)=>{
+    }, (error: any) => {
       this.spinner.hide()
       console.log(error);
 

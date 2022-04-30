@@ -55,7 +55,7 @@ whatsappStatusToggle() {
 
   if (this.whatsappStatus==true) {
 
-
+    this.form.get('whatsappContact')?.setValue(this.form.value.phone)
   }
   if (this.whatsappStatus==false) {
 

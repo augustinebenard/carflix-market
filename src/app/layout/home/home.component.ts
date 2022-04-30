@@ -13,12 +13,12 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class HomeComponent implements OnInit {
 
   cars: any = [];
-  carList!: any
+  carList: any =[]
+  topCarList:any
   submitted!: boolean;
   carDialog!: boolean;
   selectedCars!: any;
   loading: boolean = true;
-  idk!: string;
   reminderEmail: any;
 
   constructor(private service: ApiService,private spinner:NgxSpinnerService, private toastr: ToastrService, private messageService: MessageService, private confirmationService: ConfirmationService, private router: Router) { }
@@ -27,15 +27,19 @@ export class HomeComponent implements OnInit {
 
     // this.cars =
 
+
+
     this.getTopCars()
+    console.log(this.topCarList);
   }
 
   getTopCars() {
     this.loading = true
-    this.service.getTopBrandCars().subscribe((res: any) => {
+    this.service.getCars().subscribe((res: any) => {
       console.log(res);
 
       this.carList = res.data
+      this.topCarList=res.data.slice(0, 10)
       this.loading = false
 
     }, (error: any) => {

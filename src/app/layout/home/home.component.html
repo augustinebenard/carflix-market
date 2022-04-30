@@ -39,7 +39,7 @@
     </div>
 
     <div class="card">
-      <p-table [value]="carList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
+      <p-table [value]="topCarList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
         [rows]="10" [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
         responsiveLayout="scroll">
         <ng-template pTemplate="header">
@@ -85,11 +85,11 @@
           <tr (click)="viewCar()" style="cursor: pointer;">
             <td><span>First</span> </td>
             <td>
-              <img style="height: 36px;width: 36px;border-radius: 12px;" [src]="'assets/images/cars/car1.jpg'"
+              <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}"
                 [alt]="car.carModel" width="100" class="shadow-4" />
             </td>
             <td><span>{{car.carCompany}}</span></td>
-            <td><span>{{car.carModel}}</span></td>
+            <td><span>{{car.carName}}</span></td>
             <td><span>{{car.carYear}}</span></td>
             <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
                   style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>

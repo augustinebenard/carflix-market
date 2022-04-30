@@ -10,8 +10,8 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
 
-getTopBrandCars(){
-  return this.http.get(`${this.baseUrl}/product/car/filter`)
+getCars(){
+  return this.http.get(`${this.baseUrl}/product/car/database/list`)
 }
 
 filterCarTopCars(filter:any):any{

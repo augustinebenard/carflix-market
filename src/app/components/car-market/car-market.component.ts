@@ -25,7 +25,7 @@ export class CarMarketComponent implements OnInit {
 
   getTopCars() {
     this.loading = true
-    this.service.getTopBrandCars().subscribe((res: any) => {
+    this.service.getCars().subscribe((res: any) => {
       this.carList = res.data
       this.loading = false
     }, (error: any) => {

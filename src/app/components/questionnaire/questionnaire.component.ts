@@ -67,8 +67,136 @@ export class QuestionnaireComponent implements OnInit {
   submitted: boolean = false
   questionList = [
     {
+      id: 1,
+      question: "pick all the car brands you like?",
+      options: this.brandList,
+      name:"carBrand",
+      subQuestion:false,
+      multiple: true
+    },
+    {
+      id: 2,
+      question: "Tell us your estimated Budget?",
+      options: [
+        { id: 1, label: '1m - 5m' },
+        { id: 2, label: "2m - 5m" },
+        { id: 3, label: "5m - 12m" },
+        { id: 4, label: "10m - 20m" },
+        { id: 5, label: "20m - 50m" },
+        { id: 6, label: "50m+" }
+      ],
+      name:"estimatedBudget",
+      subQuestion:false,
+      multiple: false
+    },
 
-    }
+    {
+      id: 3,
+      question: "Give us a range of how old are you?",
+      options: [
+        { id: 1, label: '16 - 18' },
+        { id: 2, label: "18 - 24" },
+        { id: 3, label: "24 - 30" },
+        { id: 4, label: "30 - 40" },
+        { id: 5, label: "40+" },
+      ],
+      name:"ageRange",
+      subQuestion:false,
+      multiple: false
+    },
+    {
+      id: 4,
+      question: "How much do you plan to spend on fuel consumption weekly?",
+      options: [
+        { id: 1, label: "Less than ₦2,000" },
+        { id: 2, label: "Less than ₦5,000" },
+        { id: 3, label: "ALess than ₦10,000" },
+      ],
+      name:"spendOnFuel",
+      subQuestion:false,
+      multiple: false
+    },
+    {
+      id: 5,
+      question: "How many hours will you be driving daily?",
+      options: [
+        { id: 1, label: "Less than 2Hrs" },
+        { id: 2, label: "Less than 6Hrs" },
+        { id: 3, label: "Above 6Hrs" },
+      ],
+      name:"dailyDrivingHrs",
+      subQuestion:false,
+      multiple: false
+    },
+    {
+      id: 6,
+      question: "Are you married?",
+      options: [
+        {
+          id: 1,
+          label: 'Yes',
+          subQuestion: "How many children?",
+          name:"noOfChildren",
+          options: [
+            { id: 1, label: "Less than 3" },
+            { id: 2, label: "Less than 5" },
+            { id: 2, label: "Above 5" },
+          ]
+        },
+        { id: 2, label: "No" },
+      ],
+      subQuestion:true,
+      name:"maritalStatus",
+      multiple: false
+    },
+    {
+      id: 7,
+      question: "How much do you plan on monthly maintainance?",
+      options: [
+        { id: 1, label: "Less than ₦10,000" },
+        { id: 2, label: "Less than ₦20,000" },
+        { id: 3, label: "₦25,000+" },
+      ],
+      name:"monthyMaintainanceCost",
+      subQuestion:false,
+      multiple: false
+    },
+
+    {
+      id: 8,
+      question: "Select the list car you are looking to buy?",
+      options: [
+        { id: 1, label: "NEW" },
+        { id: 2, label: "Foreign Used" },
+        { id: 3, label: "Nigerian Used" },
+      ],
+      name:"carToBuy",
+      subQuestion:false,
+      multiple: false
+    },
+
+    {
+      id: 9,
+      question: "ow many seats will you prefer?",
+      options: [
+        { id: 1, label: "2 Seats" },
+        { id: 2, label: "5 Seats" },
+        { id: 3, label: "8 Seats" },
+      ],
+      name:"noOfSeats",
+      subQuestion:false,
+      multiple: false
+    },
+
+    {
+      id: 10,
+      question: "Tell us the things you love in a car?",
+      options: this.thingsYouLoveInCarList,
+      name:"thingsYouLoveInCar",
+      subQuestion:false,
+      multiple: true
+    },
+
   ]
 
 
@@ -95,6 +223,8 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.questionList);
+
     questionnaireStepper()
 
   }

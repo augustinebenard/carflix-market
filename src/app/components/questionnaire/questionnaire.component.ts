@@ -178,5 +178,12 @@ export class QuestionnaireComponent implements OnInit {
     this.router.navigate([''])
   }
 
+  getQuestions(){
+    this.service.getQuestions().subscribe((res:any)=>{
+      console.log(res);
+
+    })
+  }
+
 
 }

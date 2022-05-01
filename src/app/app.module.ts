@@ -1,3 +1,4 @@
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { HireInspectorComponent } from './components/hire-inspector/hire-inspector.component';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { NgModule } from '@angular/core';
@@ -36,6 +37,7 @@ import { CarMarketComponent } from './components/car-market/car-market.component
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HireInspectorComponent,
     QuestionnaireComponent,
     CarMarketComponent,
+    ArticleDetailsComponent,
+    CarDetailComponent,
   ],
   imports: [
     BrowserModule,

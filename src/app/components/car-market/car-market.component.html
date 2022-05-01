@@ -197,7 +197,7 @@
 
             <div class="trends">
               <img src="https://s2.coinmarketcap.com/static/cloud/img/GainnerIcon.png?_=5362070">
-              <span>Top Gainers</span>
+              <span>Top Cars</span>
             </div>
             <div class=" carDetails">
               <div><span class="rank">1</span>
@@ -312,7 +312,7 @@
         </ng-template>
 
         <ng-template pTemplate="body" let-car>
-          <tr (click)="viewCar()" style="cursor: pointer;">
+          <tr (click)="viewCar(car)" style="cursor: pointer;">
             <td><span>First</span> </td>
             <td>
               <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}"

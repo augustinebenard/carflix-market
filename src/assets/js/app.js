@@ -11,9 +11,9 @@
          document.body.scrollTop >= 50 ||
          document.documentElement.scrollTop >= 50
      ) {
-         navbar.classList.add("nav-sticky") || '';
+         navbar.classList?.add("nav-sticky") || '';
      } else {
-         navbar.classList.remove("nav-sticky")|| '';
+         navbar.classList?.remove("nav-sticky")|| '';
      }
  }
 

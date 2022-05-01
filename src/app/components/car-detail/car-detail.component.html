@@ -1,0 +1,235 @@
+<body style="background: #f5f7fa;">
+  <nav aria-label="breadcrumb" class="breadcrumb-row" style="margin-left: -340px; padding-top: 20px;">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active">{{carDetail?.carName}}</li>
+      </ul>
+
+
+    </div>
+  </nav>
+  <div style="float: right;margin-right: 10%;" class="float-right" routerLink="/">
+  <i style="cursor: pointer;font-size: 24px;color: #388c7c;" class="fa fa-home fa-4x"></i>
+  </div>
+
+  <div class="car-detail-container mt-5 mb-4">
+
+
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+            <div class="p-price-tag skin-green">{{carDetail?.nigeriaUsedPrice |
+              currency:'₦'}}</div>
+            <img src="{{carDetail?.bluePrint}}" height="100%" width="100%" alt="">
+            <hr class="my-4">
+
+
+
+          </div>
+
+          <div class="col-md-4 col-lg-4">
+
+            <div class="banner2-wrapper">
+              <div class="contact-banner">
+                <div class="top-info clearfix">
+                  <div class="info1">
+                    <div class="banner-title">
+                      {{carDetail?.carName}}
+                    </div>
+                    <div class="txt2">
+                      <span class="txt">FIRST DRIVE REVIEW</span>
+                      <span class="stars">
+                        <i class="fa fa-star novi-icon" aria-hidden="true"></i>
+                        <i class="fa fa-star novi-icon" aria-hidden="true"></i>
+                        <i class="fa fa-star novi-icon" aria-hidden="true"></i>
+                        <i class="fa fa-star novi-icon" aria-hidden="true"></i>
+                      </span>
+
+                    </div>
+                    <div class="text3">Nigeria Price: <span class="text-muted"
+                        style="font-weight: 500; font-size: 20px;">{{carDetail?.nigeriaUsedPrice |
+                        currency:'₦'}} </span>
+                    </div>
+                    <hr>
+                    <div class="text3">Foreign Price: <span class="text-muted"
+                        style="font-weight: 500; font-size: 20px;">{{carDetail?.foreignUsedMaxPrice |
+                        currency:'₦'}} <sub style="color: green; font-weight: 500;">max</sub></span>
+                    </div>
+
+                    <div class="text3">Foreign Price: <span class="text-muted"
+                        style="font-weight: 500; font-size: 20px;">{{carDetail?.foreignUsedMinPrice |
+                        currency:'₦'}} <sub style="color: red; font-weight: 500;">min</sub></span>
+                    </div>
+                    <hr>
+
+                    <div class="form-wrapper">
+
+                      <div class="subtitle">Feature</div>
+
+                      <div class="car-specs-container">
+                        <div class="car-specs">
+                          <div><img src="../../../assets/images/product/diamond.png" width="20" /></div>
+                          <div><strong>Model:</strong> <span> {{carDetail?.carName}}</span></div>
+
+                        </div>
+
+                        <div class="car-specs" style="justify-content: center">
+                          <div><img src="../../../assets/images/product/star.png" width="20" /></div>
+                          <div><strong>Company:</strong> <span> {{carDetail?.carCompany}}</span></div>
+                        </div>
+
+
+
+                        <div class="car-specs" style="justify-content: flex-end">
+                          <div><i class="text-muted fa fa-calendar"></i></div>
+                          <div><strong>Year: </strong><span> {{carDetail?.carYear}}</span></div>
+
+                        </div>
+
+                        <div class="car-specs">
+                          <div><i class="text-muted fa fa-door-open"></i></div>
+                          <div><strong>Door:</strong> <span> {{carDetail?.doors}}</span></div>
+
+                        </div>
+
+                        <div class="car-specs" style="justify-content: center">
+                          <div><img src="../../../assets/images/product/carspec.png" width="20" /></div>
+                          <div><strong>Seats: </strong> <span>{{carDetail?.seats}}</span></div>
+                        </div>
+
+
+
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col">
+            <div class="tabs2-wrapper ">
+              <section id="tabs">
+                <div class="container-fluid">
+
+                  <div class="row">
+                    <div class="col-xs-12 ">
+                      <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                            role="tab" aria-controls="nav-home" aria-selected="true">CAR OVERVIEW</a>
+                          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                            role="tab" aria-controls="nav-profile" aria-selected="false">Pros</a>
+                          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                            role="tab" aria-controls="nav-contact" aria-selected="false">Cons</a>
+
+                        </div>
+                      </nav>
+                      <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                          aria-labelledby="nav-home-tab">
+                          Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim
+                          occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit
+                          dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse
+                          consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod
+                          tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non
+                          adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat
+                          ex.
+
+                          <div class="row gx-1 gy-1 mt-3">
+                            <div class="col-sm-6 col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-6 fw-bolder">Company</div>
+                                <div class="col-6 text-sm-end text-start">{{carDetail?.carCompany}}</div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-6 fw-bolder">Car Name</div>
+                                <div class="col-6 text-sm-end text-start">{{carDetail?.carName}}</div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-6 fw-bolder">Year</div>
+                                <div class="col-6 text-sm-end text-start">{{carDetail?.carYear}}</div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-6 fw-bolder">Door</div>
+                                <div class="col-6 text-sm-end text-start">{{carDetail?.doors}}</div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-6 fw-bolder">Seat</div>
+                                <div class="col-6 text-sm-end text-start">{{carDetail?.seat}}</div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-6 fw-bolder">Condition</div>
+                                <div class="col-6 text-sm-end text-start">Foreign Used</div>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="row bg-light rounded py-2 mx-0">
+                                <div class="col-12 mb-2 fw-bolder">Features:</div>
+                                <div class="row">
+                                  <div class="col-sm-4 col-6 py-2"> <i class="fa fa-check"></i> Air conditionar </div>
+                                  <div class="col-sm-4 col-6 py-2"> <i class="fa fa-check"></i> Airbags </div>
+                                  <div class="col-sm-4 col-6 py-2"> <i class="fa fa-check"></i> AM/FM Radio </div>
+                                  <div class="col-sm-4 col-6 py-2"> <i class="fa fa-check"></i> CD Player </div>
+                                  <div class="col-sm-4 col-6 py-2"> <i class="fa fa-check"></i> Electric Windows </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                          <div class="m-3">
+                            <p>
+                              {{carDetail?.goodNotes}}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                          <div class="m-3">
+                            <p>
+                              {{carDetail?.badNotes}}
+                            </p>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#388c7c" type="ball-clip-rotate-multiple"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+</body>

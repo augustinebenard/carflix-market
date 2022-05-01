@@ -12,8 +12,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class HomeComponent implements OnInit {
 
+  articles!: any;
   cars: any = [];
-  carList: any =[]
   topCarList:any
   submitted!: boolean;
   carDialog!: boolean;
@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
     this.service.getCars().subscribe((res: any) => {
       console.log(res);
 
-      this.carList = res.data
       this.topCarList=res.data.slice(0, 10)
       this.loading = false
 
@@ -56,7 +55,10 @@ export class HomeComponent implements OnInit {
   gotoCarmarket() {
     this.router.navigate(['carMarket'])
   }
-  viewCar() {
+  viewCar(car:any) {
+    console.log(car);
+    this.router.navigate(['car-detail/'+car.carId])
+
 
   }
 
@@ -82,6 +84,10 @@ export class HomeComponent implements OnInit {
         this.toastr.error('',res.message)
       }
     })
+  }
 
+
+  viewArticle(id: number): void {
+    this.router.navigate(['view-article', id]);
   }
 }

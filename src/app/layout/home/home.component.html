@@ -47,13 +47,13 @@
             <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
               </p-sortIcon>
             </th>
-            <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
+            <th rowspan="3" pSortableColumn="sketch"> Image <p-sortIcon class="sortIcon" field="sketch">
               </p-sortIcon>
             </th>
             <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
               </p-sortIcon>
             </th>
-            <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
+            <th rowspan="3" pSortableColumn="carName">Car Name <p-sortIcon class="sortIcon" field="carName">
               </p-sortIcon>
             </th>
             <th rowspan="3" pSortableColumn="year">Year <p-sortIcon field="year">
@@ -82,14 +82,14 @@
 
         </ng-template>
         <ng-template pTemplate="body" let-car>
-          <tr (click)="viewCar()" style="cursor: pointer;">
+          <tr (click)="viewCar(car)" style="cursor: pointer;">
             <td><span>First</span> </td>
             <td>
               <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}"
                 [alt]="car.carModel" width="100" class="shadow-4" />
             </td>
             <td><span>{{car.carCompany}}</span></td>
-            <td><span>{{car.carName}}</span></td>
+            <td  width= "150"><span>{{car.carName}}</span></td>
             <td><span>{{car.carYear}}</span></td>
             <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
                   style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
@@ -170,7 +170,7 @@
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
-                  <a class="btn btn-primary btn-round" (click)="hireInspector()">Hire <i
+                  <a class="btn btn-primary btn-round"style="  width: 250px;" (click)="hireInspector()">Hire Now <i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
               </div>
@@ -191,7 +191,7 @@
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
-                  <a class="btn btn-primary btn-round" (click)="hireInspector()">Hire <i
+                  <a class="btn btn-primary btn-round"style="  width: 250px;" (click)="hireInspector()">Hire  Now<i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
               </div>
@@ -212,7 +212,7 @@
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
-                  <a class="btn btn-primary btn-round" (click)="hireInspector()">Hire <i
+                  <a class="btn btn-primary btn-round" style="  width: 250px;"(click)="hireInspector()">Hire Now<i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
               </div>
@@ -233,7 +233,7 @@
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
-                  <a class="btn btn-primary btn-round" (click)="hireInspector()">Hire <i
+                  <a class="btn btn-primary btn-round " style="  width: 250px;" (click)="hireInspector()">Hire Now<i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
               </div>
@@ -375,6 +375,97 @@
       </div>
     </div>
   </div>
+
+   <!-- START ARTICLE -->
+   <section class="section bg-light" id="article">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    <h5 class="sub-title text-primary text-uppercase">Our Articles</h5>
+                    <h3 class="mt-2 fw-normal">Our latest top posts insights articles</h3>
+                    <div class="title-border"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-4" >
+            <div class="col-lg-3">
+                <div class="blog-box mt-4 bg-white p-3">
+                    <div class="blog-img">
+                        <img src="https://image.shutterstock.com/image-photo/warsaw-poland-06092020-skoda-fabia-260nw-1762643651.jpg" alt="" class="img-fluid mx-auto d-block rounded">
+                    </div>
+                    <div class="blog-post-detail my-3">
+                        <p class="f-14 text-muted mb-1">23 march 2021 <span class="text-primary fw-normal">Calvin
+                                Hubbard</span></p>
+                        <h5 class="f-17"><a href="#" class="text-dark">Doing a cross country road trip</a></h5>
+                        <p class="text-muted mt-2">She packed seven versalia, put her initial into question belt made on the way..</p>
+                        <div class="mt-4">
+                            <a href="" class="btn btn-sm btn-primary">Read More <i
+                                    class="mdi mdi-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="blog-box mt-4 bg-white p-3">
+                    <div class="blog-img">
+                        <img src="https://image.shutterstock.com/image-photo/novosibirsk-russia-november-16-2018-260nw-1231983415.jpg" alt="" class="img-fluid mx-auto d-block rounded">
+                    </div>
+                    <div class="blog-post-detail my-3">
+                        <p class="f-14 text-muted mb-1">14 march 2021 <span class="text-primary fw-normal">Zachary
+                                Tevis</span></p>
+                        <h5 class="f-17"><a href="#" class="text-dark">New exhibition at our Museum</a></h5>
+                        <p class="text-muted mt-2">Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                        <div class="mt-4">
+                            <a routerLink="view-article" class="btn btn-sm btn-primary">Read More <i
+                                    class="mdi mdi-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="blog-box mt-4 bg-white p-3">
+                  <div class="blog-img">
+                      <img src="https://image.shutterstock.com/image-photo/chiangmai-thailand-november-6-2015-260nw-361645478.jpg" alt="" class="img-fluid mx-auto d-block rounded">
+                  </div>
+                  <div class="blog-post-detail my-3">
+                      <p class="f-14 text-muted mb-1">23 march 2021 <span class="text-primary fw-normal">Calvin
+                              Hubbard</span></p>
+                      <h5 class="f-17"><a href="#" class="text-dark">Doing a cross country road trip</a></h5>
+                      <p class="text-muted mt-2">She packed seven versalia, put her initial into question belt made on the way..</p>
+                      <div class="mt-4">
+                          <a routerLink="/view-article" class="btn btn-sm btn-primary" >Read More <i
+                                  class="mdi mdi-arrow-right ms-1"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            <div class="col-lg-3">
+                <div class="blog-box mt-4 bg-white p-3">
+                    <div class="blog-img">
+                        <img src="https://image.shutterstock.com/image-photo/ivalo-finland-january-28-2016-260nw-371864773.jpg" alt="" class="img-fluid mx-auto d-block rounded">
+                    </div>
+                    <div class="blog-post-detail my-3">
+                        <p class="f-14 text-muted mb-1">07 April 2021 <span class="text-primary fw-normal">William
+                                Alderman</span></p>
+                        <h5 class="f-17"><a href="#" class="text-dark">Why are so many people..
+                            </a></h5>
+                        <p class="text-muted mt-2">Far far away, behind the far word moun taiandns from the countries Consonantia.
+                        </p>
+                        <div class="mt-4">
+                            <a routerLink="view-article" class="btn btn-sm btn-primary">Read More <i
+                                    class="mdi mdi-arrow-right ms-1"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END ARTICLE -->
+
   <!-- START GET STARTED -->
   <div class="section-lg bg-cta" style="    padding-bottom: 2px;padding-top: 40px;position: relative;">
     <div class="bg-overlay launching-soon"></div>

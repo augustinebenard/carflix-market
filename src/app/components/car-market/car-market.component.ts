@@ -39,12 +39,14 @@ export class CarMarketComponent implements OnInit {
     this.loading = true
     this.service.filterCarTopCars(this.filterText).subscribe((res: any) => {
       // console.log(res);
-      this.carList=res.data
-      this.loading=false
+      this.carList = res.data
+      this.loading = false
     })
   }
 
-  viewCar() {
+  viewCar(car:any) {
+    this.router.navigate(['car-detail/'+car.carId])
+
 
   }
   gotoHome() {

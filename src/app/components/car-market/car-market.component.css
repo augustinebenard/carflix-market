@@ -39,106 +39,6 @@
   cursor: pointer;
 }
 
-.featuredCard{
-    /* width: 448px; */
-    box-shadow: rgb(88 102 126 / 8%) 0px 4px 24px, rgb(88 102 126 / 12%) 0px 1px 2px;
-    border-radius: 8px;
-    /* padding: 14px 16px 17px; */
-    border: 3px solid #efefef;
-}
-.featuredCard .trends{
-  display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-.featuredCard .trends a{
-  color: #3b82f6;
-  margin-left: 23em;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-
-.trends>span{
-  font-weight: bold;
-    font-size: 16px;
-}
-
-.carDetails {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  align-items: center;
-  margin-top: 12px;
-  cursor: pointer;
-  white-space: nowrap;
-  padding-left: 9px;
-}
-.carDetails > div:nth-child(1) {
-  -webkit-box-align: center;
-  align-items: center;
-  display: grid;
-  grid-template-columns: 8px auto 1fr;
-}
-
-.carDetails .rank {
-  font-size: 12px;
-  line-height: 18px;
-  color: #808a9d;
-  font-family: sans-serif;
-
-}
-
-.carDetails .coin-wrapper {
-  box-sizing: border-box;
-  margin: 0px;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  margin-left: 16px;
-}
-
-
-.carDetails .coin-logo {
-  height: 24px;
-  width: 24px;
-  border-radius: 12px;
-}
-
-
-
-.carName {
-  box-sizing: border-box;
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.carDetails .coin-wrapper p {
-  font-size: 12px;
-  font-weight: 600;
-  margin-left: 8px;
-  margin-bottom: 0px;
-}
-
-.carDetails .alias {
-  color: #808a9d;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 12px;
-  margin-left: 10px;
-}
-
-.trends img{
-
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-
-}
 :host ::ng-deep .p-datatable table {
   border-collapse: collapse;
   /* min-width: 70%; */
@@ -190,4 +90,45 @@ border-color: #388c7c;
 }
 :host ::ng-deep .p-dropdown {
   width: 14rem;
+}
+
+.featuredCard{
+  /* width: 448px; */
+  box-shadow: rgb(88 102 126 / 8%) 0px 4px 24px, rgb(88 102 126 / 12%) 0px 1px 2px;
+  border-radius: 8px;
+  /* padding: 14px 16px 17px; */
+  border: 3px solid #efefef;
+}
+
+.img-rounded{
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+
+}
+.car-price{
+  color:#16c784
+}
+
+.table-borderless td,
+.table-borderless th {
+    border: 0;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+}
+.trend>span{
+  font-weight: bold;
+    font-size: 16px;
+    margin-left: 5px;
+}
+.trend{
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.view-more{
+  float: right;
+  margin-left: auto;
+  cursor: pointer;
+  font-weight: 700;
 }

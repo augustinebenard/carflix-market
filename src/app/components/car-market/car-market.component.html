@@ -72,28 +72,26 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="featuredCard card">
           <div class="row card-body">
-
-            <div class="trends"><img src="https://s2.coinmarketcap.com/static/cloud/img/TrendingIcon.png?_=5362070">
-              <span>Trending</span>
-              <a   (click)="showBasicDialog2()" label="Long Content"><span >More <i class="fa fa-chevron-right"></i></span> </a>
+            <div class="trend">
+              <img src="https://s2.coinmarketcap.com/static/cloud/img/TrendingIcon.png?_=5362070">
+              <span>Trending Cars</span>
+              <a class="view-more" (click)="showMoreTrendingCars()" label="Long Content"><span>More <i
+                    class="fa fa-chevron-right"></i></span> </a>
             </div>
-           
-            <div class=" carDetails" *ngFor="let list of trendingCarList;let i=index">
-              <div *ngIf="i<4"><span class="rank">{{1+i}}</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="{{list.bluePrint}}" alt="{{list.carName}}">
-                  <div class="carName mr-3">
-                    <p>{{list.carName}}</p>
-                  </div>
-                </div><span class="alias">{{list.carYear}}</span>
-              </div>
-              <div *ngIf="i<4" class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  {{list.nigeriaUsedPrice |currency:"₦"}}
-                </span>
-              </div>
+            <table class="mt-2 table table-borderless table-condensed table-hover">
 
-            </div>
+              <tbody>
+                <tr *ngFor="let list of trendingCarList;let i=index">
+                  <td *ngIf="i<4"><span class="text-muted">{{i+1}}</span></td>
+                  <td *ngIf="i<4">
+                    <img class="img-rounded" src="{{list.bluePrint}}" alt="{{list.carName}}">
+                  </td>
+                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> <span style="margin-left: 10px"
+                      class="text-muted">{{list.carYear}}</span></td>
+                  <td *ngIf="i<4"><span class="car-price"> {{list.nigeriaUsedPrice |currency:"₦"}}</span></td>
+                </tr>
+              </tbody>
+            </table>
 
 
           </div>
@@ -107,29 +105,30 @@
         <div class="featuredCard card">
           <div class="row card-body">
 
-            <div class="trends">
-              <img src="https://s2.coinmarketcap.com/static/cloud/img/AddIcon.png?_=5362070">
-              <span>Latest</span>
-              <a  (click)="showBasicDialog2()" label="Long Content"><span >More <i class="fa fa-chevron-right"></i></span> </a>
-            </div>
-            <div class=" carDetails" *ngFor="let list of latestCarList;let i=index">
-              <div *ngIf="i<4"><span class="rank">{{1+i}}</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="{{list.bluePrint}}" alt="{{list.carName}}">
-                  <div class="carName mr-3">
-                    <p>{{list.carName}}</p>
-                  </div>
-                </div><span class="alias">{{list.carYear}}</span>
-              </div>
-              <div *ngIf="i<4" class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  {{list.nigeriaUsedPrice |currency:"₦"}}
-                </span>
-              </div>
 
+            <div class="trend">
+              <img style="height: 30px;" src="https://s2.coinmarketcap.com/static/cloud/img/AddIcon.png?_=5362070">
+              <span>Lastest Cars</span>
+              <a class="view-more" (click)="showMoreLatestCars()" label="Long Content"><span>More <i
+                    class="fa fa-chevron-right"></i></span> </a>
             </div>
+            <table class="mt-2 table table-borderless table-condensed table-hover">
+
+              <tbody>
+                <tr *ngFor="let list of latestCarList;let i=index">
+                  <td *ngIf="i<4"><span class="text-muted">{{i+1}}</span></td>
+                  <td *ngIf="i<4">
+                    <img class="img-rounded" src="{{list.bluePrint}}" alt="{{list.carName}}">
+                  </td>
+                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> <span style="margin-left: 10px"
+                      class="text-muted">{{list.carYear}}</span></td>
+                  <td *ngIf="i<4"><span class="car-price"> {{list.nigeriaUsedPrice |currency:"₦"}}</span></td>
+                </tr>
+              </tbody>
+            </table>
 
           </div>
+
         </div>
       </div>
 
@@ -137,35 +136,32 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="featuredCard card">
           <div class="row card-body">
-
-            <div class="trends">
-              <img src="https://s2.coinmarketcap.com/static/cloud/img/GainnerIcon.png?_=5362070">
+            <div class="trend">
+              <img style="    height: 30px;"
+                src="https://s2.coinmarketcap.com/static/cloud/img/GainnerIcon.png?_=5362070">
               <span>Top Cars</span>
-              <a  (click)="showBasicDialog2()" label="Long Content"><span >More <i class="fa fa-chevron-right"></i></span> </a>
+              <a class="view-more" (click)="showMoreTopCars()" label="Long Content"><span>More <i
+                    class="fa fa-chevron-right"></i></span> </a>
             </div>
-            <div class=" carDetails" *ngFor="let list of topCarList;let i=index">
+            <table class="mt-2 table table-borderless table-condensed table-hover">
 
-              <div *ngIf="i<4"><span class="rank">{{1+i}}</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="{{list.bluePrint}}" alt="{{list.carName}}">
-                  <div class="carName mr-3">
-                    <p>{{list.carName}}</p>
-                  </div>
-                </div><span class="alias">{{list.carYear}}</span>
-              </div>
-              <div *ngIf="i<4" class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  {{list.nigeriaUsedPrice |currency:"₦"}}
-                </span>
-              </div>
+              <tbody>
+                <tr  *ngFor="let list of topCarList;let i=index">
+                  <td *ngIf="i<4"><span class="text-muted">{{i+1}}</span></td>
+                  <td *ngIf="i<4">
+                    <img class="img-rounded" src="{{list.bluePrint}}" alt="{{list.carName}}">
+                  </td >
+                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> <span style="margin-left: 10px"
+                      class="text-muted">{{list.carYear}}</span></td>
+                  <td *ngIf="i<4"><span class="car-price"> {{list.nigeriaUsedPrice |currency:"₦"}}</span></td>
+                </tr>
+              </tbody>
+            </table>
 
-
-            </div>
           </div>
         </div>
       </div>
     </div>
-
 
     <div class="container-fluid">
       <div class="row">
@@ -206,7 +202,7 @@
               <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
                 </p-sortIcon>
               </th>
-              <th rowspan="3" pSortableColumn="year">Year <p-sortIcon field="year">
+              <th rowspan="3" pSortableColumn="carYear">Year <p-sortIcon field="carYear">
                 </p-sortIcon>
               </th>
             </tr>
@@ -214,16 +210,16 @@
 
             <tr class="header">
               <th colspan="2" class="text-center">Foreign Used</th>
-              <th rowspan="3" pSortableColumn="year" class="text-center">Nigeria use Price <p-sortIcon field="year">
+              <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon field="nigeriaUsedPrice">
                 </p-sortIcon>
               </th>
             </tr>
             <tr class="subHeader ">
-              <th class="text-center" pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
+              <th class="text-center" pSortableColumn="foreignUsedMinPrice">Min Price <p-sortIcon field="foreignUsedMinPrice">
                 </p-sortIcon>
 
               </th>
-              <th class="text-center" pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
+              <th class="text-center" pSortableColumn="foreignUsedMaxPrice">Max Price <p-sortIcon field="foreignUsedMaxPrice">
                 </p-sortIcon>
               </th>
 
@@ -269,34 +265,74 @@
 
   </div>
 
-  <p-dialog header="Long Content" [(visible)]="displayBasic2" [style]="{width: '50vw'}">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-      culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p-dialog header="{{rank}} Cars" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}" [modal]="true"  [maximizable]="true"
+  [draggable]="false" [resizable]="false" [(visible)]="displayCarPopUp" [style]="{width: '70vw'}">
 
-    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-      dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-      consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-      qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
-      quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-      autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-      vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+  <p-table [value]="carRankList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
+  [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
+  styleClass=" p-datatable-striped p-datatable-sm" responsiveLayout="scroll">
 
-    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
-      corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
-      similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
-      facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-      cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-      repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-      eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
-      delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-    </p>
+  <ng-template pTemplate="header">
+    <tr class="header">
+
+      <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
+        </p-sortIcon>
+      </th>
+      <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
+        </p-sortIcon>
+      </th>
+      <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
+        </p-sortIcon>
+      </th>
+      <th rowspan="3" pSortableColumn="carYear">Year <p-sortIcon field="carYear">
+        </p-sortIcon>
+      </th>
+    </tr>
+
+
+    <tr class="header">
+      <th colspan="2" class="text-center">Foreign Used</th>
+      <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon field="nigeriaUsedPrice">
+        </p-sortIcon>
+      </th>
+    </tr>
+    <tr class="subHeader ">
+      <th class="text-center" pSortableColumn="foreignUsedMinPrice">Min Price <p-sortIcon field="foreignUsedMinPrice">
+        </p-sortIcon>
+
+      </th>
+      <th class="text-center" pSortableColumn="foreignUsedMaxPrice">Max Price <p-sortIcon field="foreignUsedMaxPrice">
+        </p-sortIcon>
+      </th>
+
+    </tr>
+
+
+  </ng-template>
+
+  <ng-template pTemplate="body" let-car>
+    <tr (click)="viewCar(car)" style="cursor: pointer;">
+      <!-- <td><span>First</span> </td> -->
+      <td>
+        <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}" [alt]="car.carModel"
+          width="100" class="shadow-4" />
+      </td>
+      <td><span>{{car.carCompany}}</span></td>
+      <td><span>{{car.carName}}</span></td>
+      <td><span>{{car.carYear}}</span></td>
+      <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
+            style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
+      <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} <i
+            style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
+      <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice |
+          currency:'₦'}}</span> </td>
+    </tr>
+
+  </ng-template>
+
+</p-table>
     <ng-template pTemplate="footer">
-      <p-button icon="pi pi-check" (click)="displayBasic2=false" label="Ok" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-check" (click)="displayCarPopUp=false" label="Close" styleClass="p-button-text"></p-button>
     </ng-template>
   </p-dialog>
 </section>

@@ -30,16 +30,18 @@ export class CarMarketComponent implements OnInit {
     { rank: "Latest" }
   ]
   selectedRank: any
-  displayBasic2!: boolean;
+  displayCarPopUp!: boolean;
+  rank:any='';
+  carRankList:any
   constructor(private router: Router, private spinner: NgxSpinnerService, private service: ApiService) { }
 
   ngOnInit(): void {
-   
+
     this.getTopCars()
     this.getLatestCars()
     this.getTrendingCars()
     this.getCars()
-  
+
   }
 
   getCars() {
@@ -111,7 +113,24 @@ export class CarMarketComponent implements OnInit {
     )
   }
 
-
+  showMoreTopCars() {
+    this.rank="Top"
+    this.displayCarPopUp = true;
+    this.getTopCars()
+    this.carRankList=this.topCarList
+  }
+  showMoreTrendingCars() {
+    this.rank="Trending"
+    this.displayCarPopUp = true;
+    this.getTrendingCars()
+    this.carRankList=this.trendingCarList
+  }
+  showMoreLatestCars() {
+    this.rank="Latest"
+    this.displayCarPopUp = true;
+    this.getLatestCars()
+    this.carRankList=this.latestCarList
+  }
   // getCarsByRank() {
 
   //   if (this.carRanks.rank == "Top") {
@@ -151,9 +170,6 @@ export class CarMarketComponent implements OnInit {
   //   }
   // }
 
-  showBasicDialog2() {
-    this.displayBasic2 = true;
-}
 
 
 

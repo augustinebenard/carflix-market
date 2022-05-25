@@ -36,6 +36,7 @@ a {
     padding-bottom: 90px;
     padding-top: 90px;
     position: relative;
+    overflow: auto;
 }
 
 .section-lg {

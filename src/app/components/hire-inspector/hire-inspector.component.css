@@ -60,10 +60,10 @@
 }
 
 
-:host ::ng-deep .multiselect-custom .p-multiselect-label {
+/* :host ::ng-deep .multiselect-custom .p-multiselect-label {
     padding-top: .25rem;
     padding-bottom: .25rem;
-}
+} */
 
 :host ::ng-deep {
     @media screen and (max-width: 640px) {
@@ -111,12 +111,12 @@
     transition: .3s;
     border: 1px solid darkgray;
     }
-    
+
     .rad-label:hover,
     .rad-label:focus-within {
     background: hsla(0, 0%, 80%, .14);
     }
-    
+
     .rad-input {
     position: absolute;
     left: 0;
@@ -126,33 +126,33 @@
     opacity: 0;
     z-index: -1;
     }
-    
+
     .rad-design {
     width: 22px;
     height: 22px;
     border-radius: 100px;
-    
+
     background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%));
     position: relative;
     }
-    
+
     .rad-design::before {
     content: '';
-    
+
     display: inline-block;
     width: inherit;
     height: inherit;
     border-radius: inherit;
-    
+
     background: hsl(0, 0%, 90%);
     transform: scale(1.1);
     transition: .3s;
     }
-    
+
     .rad-input:checked+.rad-design::before {
     transform: scale(0);
     }
-    
+
     .rad-text {
     color: hsl(0, 100%, 100%);
     margin-left: 14px;
@@ -160,11 +160,11 @@
     /* text-transform: uppercase; */
     font-size: 18px;
     font-weight: 900;
-    
+
     transition: .3s;
     }
-    
+
     .rad-input:checked~.rad-text {
     color: hsl(0, 0%, 40%);
     }
-    
+

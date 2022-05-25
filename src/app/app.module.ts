@@ -68,6 +68,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     ProgressBarModule,
     FileUploadModule,
     ToolbarModule,
+    DialogModule,
     RatingModule,
     RadioButtonModule,
     InputNumberModule,

@@ -44,9 +44,9 @@
         responsiveLayout="scroll">
         <ng-template pTemplate="header">
           <tr class="header">
-            <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
+            <!-- <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
               </p-sortIcon>
-            </th>
+            </th> -->
             <th rowspan="3" pSortableColumn="sketch"> Image <p-sortIcon class="sortIcon" field="sketch">
               </p-sortIcon>
             </th>
@@ -83,7 +83,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-car>
           <tr (click)="viewCar(car)" style="cursor: pointer;">
-            <td><span>First</span> </td>
+            <!-- <td><span>First</span> </td> -->
             <td>
               <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}"
                 [alt]="car.carModel" width="100" class="shadow-4" />

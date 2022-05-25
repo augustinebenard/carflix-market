@@ -31,8 +31,27 @@
               <div class="col-lg-12 col-md-12 col-sm-12">
                 <span style="width: 100%;" class="p-input-icon-left">
                   <p-multiSelect [options]="listOfServices" formControlName="inspectionService"
-                    defaultLabel="Select service" optionLabel="name" display="chip"></p-multiSelect>
+                    defaultLabel="Select service" optionLabel="name" display="chip">
+                  </p-multiSelect>
+
+                     <!-- <p-multiSelect [options]="listOfServices" [(ngModel)]="selectedServices" name="selectedServices"
+                    defaultLabel="Select Service" optionLabel="name" class="multiselect-custom">
+                    <ng-template let-value pTemplate="selectedItems">
+                      <div class="country-item country-item-value" *ngFor="let list of selectedServices">
+
+                        <div>{{list.name}} <span class="text-muted">{{list.price | currency:"NGN"}}</span></div>
+                      </div>
+
+                    </ng-template>
+                    <ng-template let-service pTemplate="item">
+                      <div class="country-item">
+                        <div>{{service.name}} <span class="text-muted">{{service.price | currency:"NGN"}}</span></div>
+                      </div>
+                    </ng-template>
+                  </p-multiSelect> -->
                 </span>
+
+
               </div>
 
               <div class="col-lg-12 col-md-12 col-sm-12">

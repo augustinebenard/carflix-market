@@ -52,7 +52,7 @@
 
 
 <section class="section bg-light mt-5" id="work">
-  <div class="container">
+  <div class="m-5">
     <div class="row justify-content-center text-center">
       <div class="col-lg-7">
         <div class="title-box">
@@ -69,280 +69,240 @@
 
     <div class="row mt-4 mb-5">
       <!-- FEATURED MARKET -->
-      <div class="col">
+      <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="featuredCard card">
           <div class="row card-body">
 
             <div class="trends"><img src="https://s2.coinmarketcap.com/static/cloud/img/TrendingIcon.png?_=5362070">
               <span>Trending</span>
+              <a   (click)="showBasicDialog2()" label="Long Content"><span >More <i class="fa fa-chevron-right"></i></span> </a>
             </div>
-            <div class=" carDetails">
-              <div><span class="rank">1</span>
+           
+            <div class=" carDetails" *ngFor="let list of trendingCarList;let i=index">
+              <div *ngIf="i<4"><span class="rank">{{1+i}}</span>
                 <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car1.jpg" alt="undefined logo">
+                  <img class="coin-logo" src="{{list.bluePrint}}" alt="{{list.carName}}">
                   <div class="carName mr-3">
-                    <p>Land Rover</p>
+                    <p>{{list.carName}}</p>
                   </div>
-                </div><span class="alias">2019</span>
+                </div><span class="alias">{{list.carYear}}</span>
               </div>
-              <div class="price-change">
+              <div *ngIf="i<4" class="price-change">
                 <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦200,000
-                </span>
-
-
-              </div>
-            </div>
-
-            <div class=" carDetails">
-              <div><span class="rank">2</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car2.png" alt="undefined logo">
-                  <div class="carName mr-3">
-                    <p>Lexus</p>
-                  </div>
-                </div><span class="alias">2021</span>
-              </div>
-              <div class="price-change">
-                <span style="color:red;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-down"></span>₦1,200,000
+                  {{list.nigeriaUsedPrice |currency:"₦"}}
                 </span>
               </div>
+
             </div>
 
-            <div class=" carDetails">
-              <div><span class="rank">3</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car3.jpg" alt="undefined logo">
-                  <div class="carName mr-3">
-                    <p>Toyota Camry</p>
-                  </div>
-                </div><span class="alias">2009</span>
-              </div>
-              <div class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦900,000
-                </span>
-              </div>
-            </div>
+
           </div>
         </div>
-        <!-- END OF FEATURED MARKET -->
+
       </div>
 
-      <!-- RECENT CARS -->
-      <div class="col">
+
+      <!-- LATEST CARS  -->
+      <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="featuredCard card">
           <div class="row card-body">
 
             <div class="trends">
               <img src="https://s2.coinmarketcap.com/static/cloud/img/AddIcon.png?_=5362070">
-              <span>Recent Cars</span>
+              <span>Latest</span>
+              <a  (click)="showBasicDialog2()" label="Long Content"><span >More <i class="fa fa-chevron-right"></i></span> </a>
             </div>
-            <div class=" carDetails">
-              <div><span class="rank">1</span>
+            <div class=" carDetails" *ngFor="let list of latestCarList;let i=index">
+              <div *ngIf="i<4"><span class="rank">{{1+i}}</span>
                 <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car1.jpg" alt="undefined logo">
+                  <img class="coin-logo" src="{{list.bluePrint}}" alt="{{list.carName}}">
                   <div class="carName mr-3">
-                    <p>Land Rover</p>
+                    <p>{{list.carName}}</p>
                   </div>
-                </div><span class="alias">2019</span>
+                </div><span class="alias">{{list.carYear}}</span>
               </div>
-              <div class="price-change">
+              <div *ngIf="i<4" class="price-change">
                 <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦200,000
+                  {{list.nigeriaUsedPrice |currency:"₦"}}
                 </span>
               </div>
+
             </div>
 
-            <div class=" carDetails">
-              <div><span class="rank">2</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car2.png" alt="undefined logo">
-                  <div class="carName mr-3">
-                    <p>Lexus</p>
-                  </div>
-                </div><span class="alias">2021</span>
-              </div>
-              <div class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦1,200,000
-                </span>
-              </div>
-            </div>
-
-            <div class=" carDetails">
-              <div><span class="rank">3</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car3.jpg" alt="undefined logo">
-                  <div class="carName mr-3">
-                    <p>Toyota Camry</p>
-                  </div>
-                </div><span class="alias">2009</span>
-              </div>
-              <div class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦900,000
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      <!-- TOP GAINERS -->
-      <div class="col">
+      <!-- TOP CARS -->
+      <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="featuredCard card">
           <div class="row card-body">
 
             <div class="trends">
               <img src="https://s2.coinmarketcap.com/static/cloud/img/GainnerIcon.png?_=5362070">
               <span>Top Cars</span>
+              <a  (click)="showBasicDialog2()" label="Long Content"><span >More <i class="fa fa-chevron-right"></i></span> </a>
             </div>
-            <div class=" carDetails">
-              <div><span class="rank">1</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car1.jpg" alt="undefined logo">
-                  <div class="carName mr-3">
-                    <p>Land Rover</p>
-                  </div>
-                </div><span class="alias">2019</span>
-              </div>
-              <div class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦200,000
-                </span>
-              </div>
-            </div>
+            <div class=" carDetails" *ngFor="let list of topCarList;let i=index">
 
-            <div class=" carDetails">
-              <div><span class="rank">2</span>
+              <div *ngIf="i<4"><span class="rank">{{1+i}}</span>
                 <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car2.png" alt="undefined logo">
+                  <img class="coin-logo" src="{{list.bluePrint}}" alt="{{list.carName}}">
                   <div class="carName mr-3">
-                    <p>Lexus</p>
+                    <p>{{list.carName}}</p>
                   </div>
-                </div><span class="alias">2021</span>
+                </div><span class="alias">{{list.carYear}}</span>
               </div>
-              <div class="price-change">
+              <div *ngIf="i<4" class="price-change">
                 <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦1,200,000
+                  {{list.nigeriaUsedPrice |currency:"₦"}}
                 </span>
               </div>
-            </div>
 
-            <div class=" carDetails">
-              <div><span class="rank">3</span>
-                <div class="coin-wrapper">
-                  <img class="coin-logo" src="../../../assets/images/cars/car3.jpg" alt="undefined logo">
-                  <div class="carName mr-3">
-                    <p>Toyota Camry</p>
-                  </div>
-                </div><span class="alias">2009</span>
-              </div>
-              <div class="price-change">
-                <span style="color:#16c784;padding:0;border-radius:8px">
-                  <span class="mdi mdi-trending-up"></span>₦900,000
-                </span>
-              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col"></div>
-      <div class="col">
-        <div class="filter">
-          <span class="p-input-icon-left float-right">
-            <i class="pi pi-search"></i>
-            <input type="text" class="p-inputtext-sm" [(ngModel)]="filterText" name="filterText" pInputText
-              placeholder="Search e.g Toyota" />
-          </span>
-          <p-button label="Filter" styleClass=" p-button-sm" (click)="filterCarByBrand()"></p-button>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <div class="filter">
+            <span class="p-input-icon-left float-right">
+              <i class="pi pi-search"></i>
+              <input type="text" class="p-inputtext-sm" [(ngModel)]="filterText" name="filterText" pInputText
+                placeholder="Search e.g Toyota" />
+
+
+
+            </span>
+            <p-button label="Filter" styleClass=" p-button-sm" (click)="filterCarByBrand()"></p-button>
+          </div>
+
         </div>
 
       </div>
 
-    </div>
+      <div class="card mt-4">
+        <p-table [value]="carList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
+          [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
+          styleClass=" p-datatable-striped p-datatable-sm" responsiveLayout="scroll">
 
-    <div class="card mt-4">
-      <p-table [value]="carList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
-        [rows]="10" [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
-        responsiveLayout="scroll">
-
-        <ng-template pTemplate="header">
-          <tr class="header">
-            <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
-              </p-sortIcon>
-            </th>
-            <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
-              </p-sortIcon>
-            </th>
-            <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
-              </p-sortIcon>
-            </th>
-            <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
-              </p-sortIcon>
-            </th>
-            <th rowspan="3" pSortableColumn="year">Year <p-sortIcon field="year">
-              </p-sortIcon>
-            </th>
-          </tr>
+          <ng-template pTemplate="header">
+            <tr class="header">
+              <!-- <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
+            </p-sortIcon>
+          </th> -->
+              <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
+                </p-sortIcon>
+              </th>
+              <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
+                </p-sortIcon>
+              </th>
+              <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
+                </p-sortIcon>
+              </th>
+              <th rowspan="3" pSortableColumn="year">Year <p-sortIcon field="year">
+                </p-sortIcon>
+              </th>
+            </tr>
 
 
-          <tr class="header">
-            <th colspan="2" class="text-center">Foreign Used</th>
-            <th rowspan="3" pSortableColumn="year" class="text-center">Nigeria use Price <p-sortIcon field="year">
-              </p-sortIcon>
-            </th>
-          </tr>
-          <tr class="subHeader ">
-            <th class="text-center" pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
-              </p-sortIcon>
+            <tr class="header">
+              <th colspan="2" class="text-center">Foreign Used</th>
+              <th rowspan="3" pSortableColumn="year" class="text-center">Nigeria use Price <p-sortIcon field="year">
+                </p-sortIcon>
+              </th>
+            </tr>
+            <tr class="subHeader ">
+              <th class="text-center" pSortableColumn="minPrice">Min Price <p-sortIcon field="minPrice">
+                </p-sortIcon>
 
-            </th>
-            <th class="text-center" pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
-              </p-sortIcon>
-            </th>
+              </th>
+              <th class="text-center" pSortableColumn="maxPrice">Max Price <p-sortIcon field="maxPrice">
+                </p-sortIcon>
+              </th>
 
-          </tr>
-
-
-        </ng-template>
-
-        <ng-template pTemplate="body" let-car>
-          <tr (click)="viewCar(car)" style="cursor: pointer;">
-            <td><span>First</span> </td>
-            <td>
-              <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}"
-                [alt]="car.carModel" width="100" class="shadow-4" />
-            </td>
-            <td><span>{{car.carCompany}}</span></td>
-            <td><span>{{car.carName}}</span></td>
-            <td><span>{{car.carYear}}</span></td>
-            <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
-                  style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
-            <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} <i
-                  style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
-            <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice | currency:'₦'}}</span> </td>
-          </tr>
-
-        </ng-template>
-
-      </p-table>
-    </div>
+            </tr>
 
 
+          </ng-template>
 
-    <div class="row mt-3">
-      <div class="col-lg-12">
-        <div class="mt-4 text-center">
-          <a (click)="gotoHome()" class="btn btn-primary btn-round">Back Home <i
-              class="mdi mdi-arrow-left ps-1"></i></a>
+          <ng-template pTemplate="body" let-car>
+            <tr (click)="viewCar(car)" style="cursor: pointer;">
+              <!-- <td><span>First</span> </td> -->
+              <td>
+                <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}" [alt]="car.carModel"
+                  width="100" class="shadow-4" />
+              </td>
+              <td><span>{{car.carCompany}}</span></td>
+              <td><span>{{car.carName}}</span></td>
+              <td><span>{{car.carYear}}</span></td>
+              <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
+                    style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
+              <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} <i
+                    style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
+              <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice |
+                  currency:'₦'}}</span> </td>
+            </tr>
+
+          </ng-template>
+
+        </p-table>
+      </div>
+
+
+
+      <div class="row mt-3">
+        <div class="col-lg-12">
+          <div class="mt-4 text-center">
+            <a (click)="gotoHome()" class="btn btn-primary btn-round">Back Home <i
+                class="mdi mdi-arrow-left ps-1"></i></a>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
+
+  <p-dialog header="Long Content" [(visible)]="displayBasic2" [style]="{width: '50vw'}">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+      culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+      dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+      consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+      qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
+      quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+      autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+      vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+      corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+      similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+      facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+      cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+      repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+      eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
+      delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </p>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="displayBasic2=false" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
 </section>
 <app-footer></app-footer>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#388c7c" type="ball-clip-rotate-multiple"
+  [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

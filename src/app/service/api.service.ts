@@ -22,6 +22,10 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/product/car/filter?filterType=${filter}`)
   }
 
+  filterCarByRanks(rank: any): any {
+    return this.http.get(`${this.baseUrl}/product/car/database/rank?rank=${rank}`)
+  }
+
   submitQuestionnaire(data: any) {
     return this.http.post(`${this.baseUrl}/supports/questionnaire`, data)
   }
@@ -31,6 +35,10 @@ export class ApiService {
 
   createEmailReminder(data: any) {
     return this.http.post(`${this.baseUrl}/supports/reminder/create`, data)
+  }
+
+  submitInpectionRecord(data: any) {
+    return this.http.post(`${this.baseUrl}/supports/inspection/create/v2`, data)
   }
 
   getQuestions() {

@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiService } from './../../service/api.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -14,16 +15,34 @@ export class CarMarketComponent implements OnInit {
   cars: any = [];
   carList: any;
   filterText: any;
+  // carRanks: any = [
+  //   { rank: "Top" },
+  //   { rank: "Trending" },
+  //   { rank: "Latest" }
 
-  constructor(private router: Router, private service: ApiService) { }
+  // ]
+  topCarList: any;
+  latestCarList: any;
+  trendingCarList: any;
+  filterRank: any = [
+    { rank: "Top" },
+    { rank: "Trending" },
+    { rank: "Latest" }
+  ]
+  selectedRank: any
+  displayBasic2!: boolean;
+  constructor(private router: Router, private spinner: NgxSpinnerService, private service: ApiService) { }
 
   ngOnInit(): void {
-
-
+   
     this.getTopCars()
+    this.getLatestCars()
+    this.getTrendingCars()
+    this.getCars()
+  
   }
 
-  getTopCars() {
+  getCars() {
     this.loading = true
     this.service.getCars().subscribe((res: any) => {
       this.carList = res.data
@@ -44,14 +63,98 @@ export class CarMarketComponent implements OnInit {
     })
   }
 
-  viewCar(car:any) {
-    this.router.navigate(['car-detail/'+car.carId])
+  viewCar(car: any) {
+    this.router.navigate(['car-detail/' + car.carId])
 
 
   }
   gotoHome() {
     this.router.navigate([''])
   }
+
+  getTopCars() {
+    this.spinner.show()
+    this.service.filterCarByRanks("Top").subscribe((res: any) => {
+      // console.log(res);
+      this.spinner.hide()
+      this.topCarList = res.data
+    }, (error: any) => {
+      console.log(error);
+      this.spinner.hide()
+    }
+    )
+  }
+
+  getLatestCars() {
+    this.spinner.show()
+    this.service.filterCarByRanks("Latest").subscribe((res: any) => {
+      // console.log(res);
+      this.spinner.hide()
+      this.latestCarList = res.data
+    }, (error: any) => {
+      console.log(error);
+      this.spinner.hide()
+    }
+    )
+  }
+
+  getTrendingCars() {
+    this.spinner.show()
+    this.service.filterCarByRanks("Trending").subscribe((res: any) => {
+      // console.log(res);
+      this.spinner.hide()
+      this.trendingCarList = res.data
+    }, (error: any) => {
+      console.log(error);
+      this.spinner.hide()
+    }
+    )
+  }
+
+
+  // getCarsByRank() {
+
+  //   if (this.carRanks.rank == "Top") {
+  //     this.service.filterCarByRanks("Top").subscribe((res: any) => {
+  //       console.log(res);
+  //     }, (error: any) => {
+  //       console.log(error);
+  //     }
+  //     )
+  //   }
+
+  //   else if (this.carRanks.rank == "Latest") {
+  //     this.service.filterCarByRanks("Latest").subscribe((res: any) => {
+  //       console.log(res);
+  //     }, (error: any) => {
+  //       console.log(error);
+  //     }
+  //     )
+  //   }
+
+  //   else if (this.carRanks.rank == "Top") {
+  //     this.service.filterCarByRanks("Top").subscribe((res: any) => {
+  //       console.log(res);
+  //     }, (error: any) => {
+  //       console.log(error);
+  //     }
+  //     )
+  //   }
+
+  //   if (this.carRanks.rank == "Trending") {
+  //     this.service.filterCarByRanks("Trending").subscribe((res: any) => {
+  //       console.log(res);
+  //     }, (error: any) => {
+  //       console.log(error);
+  //     }
+  //     )
+  //   }
+  // }
+
+  showBasicDialog2() {
+    this.displayBasic2 = true;
+}
+
 
 
 

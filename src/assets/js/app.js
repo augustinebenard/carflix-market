@@ -181,7 +181,7 @@
 			},
 			countDown:  function (){
 				if ($('.quiz-countdown').length > 0) {
-					var deadlineDate = new Date('apr 30, 2022 23:59:59').getTime();
+					var deadlineDate = new Date('jun 10, 2022 23:59:59').getTime();
 					var countdownDays = document.querySelector('.days .count-down-number');
 					var countdownHours = document.querySelector('.hours .count-down-number');
 					var countdownMinutes = document.querySelector('.minutes .count-down-number');

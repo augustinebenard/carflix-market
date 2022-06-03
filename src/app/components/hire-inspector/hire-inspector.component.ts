@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,14 +18,14 @@ export class HireInspectorComponent implements OnInit {
   stateOptions!: any[];
   hireForm: boolean = false;
   form!: FormGroup
-  constructor(private service: ApiService, private fb: FormBuilder) {
+  constructor(private service: ApiService, private fb: FormBuilder, private toastr:ToastrService) {
 
   }
 
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      date: ['', [Validators.required]],
+      inspectionDate: ['', [Validators.required]],
       carLocation: ['', [Validators.required]],
       inspectionService: new FormControl([], [Validators.required]),
       extraNote: ['', [Validators.required]],
@@ -39,7 +40,7 @@ export class HireInspectorComponent implements OnInit {
 
   getInpectionService() {
     this.service.getInspectionService().subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.listOfServices = res.data
 
     }, (error: any) => {
@@ -68,11 +69,23 @@ export class HireInspectorComponent implements OnInit {
   }
 
   hireNow() {
-    console.log(this.form.value);
+    // console.log(this.form.value);
 
     this.service.submitInpectionRecord(this.form.value).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
+      this.hireForm=false
 
+      if(res.message=="Success"){
+        this.toastr.success("",res.data)
+        this.form.reset()
+      }
+      else{
+        this.toastr.warning("",res.data)
+      }
+
+    },error=>{
+      this.toastr.error("",error.error)
+      this.hireForm=false
     })
 
   }

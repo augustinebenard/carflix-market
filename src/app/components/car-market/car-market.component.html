@@ -86,8 +86,7 @@
                   <td *ngIf="i<4">
                     <img class="img-rounded" src="{{list.bluePrint}}" alt="{{list.carName}}">
                   </td>
-                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> <span style="margin-left: 10px"
-                      class="text-muted">{{list.carYear}}</span></td>
+                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> </td>
                   <td *ngIf="i<4"><span class="car-price"> {{list.nigeriaUsedPrice |currency:"₦"}}</span></td>
                 </tr>
               </tbody>
@@ -120,8 +119,7 @@
                   <td *ngIf="i<4">
                     <img class="img-rounded" src="{{list.bluePrint}}" alt="{{list.carName}}">
                   </td>
-                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> <span style="margin-left: 10px"
-                      class="text-muted">{{list.carYear}}</span></td>
+                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span></td>
                   <td *ngIf="i<4"><span class="car-price"> {{list.nigeriaUsedPrice |currency:"₦"}}</span></td>
                 </tr>
               </tbody>
@@ -146,13 +144,12 @@
             <table class="mt-2 table table-borderless table-condensed table-hover">
 
               <tbody>
-                <tr  *ngFor="let list of topCarList;let i=index">
+                <tr *ngFor="let list of topCarList;let i=index">
                   <td *ngIf="i<4"><span class="text-muted">{{i+1}}</span></td>
                   <td *ngIf="i<4">
                     <img class="img-rounded" src="{{list.bluePrint}}" alt="{{list.carName}}">
-                  </td >
-                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span> <span style="margin-left: 10px"
-                      class="text-muted">{{list.carYear}}</span></td>
+                  </td>
+                  <td (click)="viewCar(list)" *ngIf="i<4"><span class="mr-3">{{list.carName}}</span></td>
                   <td *ngIf="i<4"><span class="car-price"> {{list.nigeriaUsedPrice |currency:"₦"}}</span></td>
                 </tr>
               </tbody>
@@ -210,16 +207,19 @@
 
             <tr class="header">
               <th colspan="2" class="text-center">Foreign Used</th>
-              <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon field="nigeriaUsedPrice">
+              <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon
+                  field="nigeriaUsedPrice">
                 </p-sortIcon>
               </th>
             </tr>
             <tr class="subHeader ">
-              <th class="text-center" pSortableColumn="foreignUsedMinPrice">Min Price <p-sortIcon field="foreignUsedMinPrice">
+              <th class="text-center" pSortableColumn="foreignUsedMinPrice">Min Price <p-sortIcon
+                  field="foreignUsedMinPrice">
                 </p-sortIcon>
 
               </th>
-              <th class="text-center" pSortableColumn="foreignUsedMaxPrice">Max Price <p-sortIcon field="foreignUsedMaxPrice">
+              <th class="text-center" pSortableColumn="foreignUsedMaxPrice">Max Price <p-sortIcon
+                  field="foreignUsedMaxPrice">
                 </p-sortIcon>
               </th>
 
@@ -238,10 +238,10 @@
               <td><span>{{car.carCompany}}</span></td>
               <td><span>{{car.carName}}</span></td>
               <td><span>{{car.carYear}}</span></td>
-              <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
-                    style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
-              <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} <i
-                    style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
+              <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} </span>
+              </td>
+              <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} </span>
+              </td>
               <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice |
                   currency:'₦'}}</span> </td>
             </tr>
@@ -265,72 +265,74 @@
 
   </div>
 
-  <p-dialog header="{{rank}} Cars" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}" [modal]="true"  [maximizable]="true"
-  [draggable]="false" [resizable]="false" [(visible)]="displayCarPopUp" [style]="{width: '70vw'}">
+  <p-dialog header="{{rank}} Cars" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}" [modal]="true"
+    [maximizable]="true" [draggable]="false" [resizable]="false" [(visible)]="displayCarPopUp"
+    [style]="{width: '70vw'}">
 
-  <p-table [value]="carRankList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
-  [rows]="10" [showCurrentPageReport]="true" [loading]="loading"
-  styleClass=" p-datatable-striped p-datatable-sm" responsiveLayout="scroll">
+    <p-table [value]="carRankList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
+      [rows]="10" [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
+      responsiveLayout="scroll">
 
-  <ng-template pTemplate="header">
-    <tr class="header">
+      <ng-template pTemplate="header">
+        <tr class="header">
 
-      <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
-        </p-sortIcon>
-      </th>
-      <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
-        </p-sortIcon>
-      </th>
-      <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
-        </p-sortIcon>
-      </th>
-      <th rowspan="3" pSortableColumn="carYear">Year <p-sortIcon field="carYear">
-        </p-sortIcon>
-      </th>
-    </tr>
-
-
-    <tr class="header">
-      <th colspan="2" class="text-center">Foreign Used</th>
-      <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon field="nigeriaUsedPrice">
-        </p-sortIcon>
-      </th>
-    </tr>
-    <tr class="subHeader ">
-      <th class="text-center" pSortableColumn="foreignUsedMinPrice">Min Price <p-sortIcon field="foreignUsedMinPrice">
-        </p-sortIcon>
-
-      </th>
-      <th class="text-center" pSortableColumn="foreignUsedMaxPrice">Max Price <p-sortIcon field="foreignUsedMaxPrice">
-        </p-sortIcon>
-      </th>
-
-    </tr>
+          <th rowspan="3" pSortableColumn="sketch">Sketch <p-sortIcon class="sortIcon" field="sketch">
+            </p-sortIcon>
+          </th>
+          <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
+            </p-sortIcon>
+          </th>
+          <th rowspan="3" pSortableColumn="carName">Model <p-sortIcon class="sortIcon" field="carName">
+            </p-sortIcon>
+          </th>
+          <th rowspan="3" pSortableColumn="carYear">Year <p-sortIcon field="carYear">
+            </p-sortIcon>
+          </th>
+        </tr>
 
 
-  </ng-template>
+        <tr class="header">
+          <th colspan="2" class="text-center">Foreign Used</th>
+          <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon
+              field="nigeriaUsedPrice">
+            </p-sortIcon>
+          </th>
+        </tr>
+        <tr class="subHeader ">
+          <th class="text-center" pSortableColumn="foreignUsedMinPrice">Min Price <p-sortIcon
+              field="foreignUsedMinPrice">
+            </p-sortIcon>
 
-  <ng-template pTemplate="body" let-car>
-    <tr (click)="viewCar(car)" style="cursor: pointer;">
-      <!-- <td><span>First</span> </td> -->
-      <td>
-        <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}" [alt]="car.carModel"
-          width="100" class="shadow-4" />
-      </td>
-      <td><span>{{car.carCompany}}</span></td>
-      <td><span>{{car.carName}}</span></td>
-      <td><span>{{car.carYear}}</span></td>
-      <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} <i
-            style="color: red;font-weight: 600;" class="mdi mdi-trending-down"></i></span> </td>
-      <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} <i
-            style="color: rgb(12, 208, 12);font-weight: 600;" class="mdi mdi-trending-up"></i></span> </td>
-      <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice |
-          currency:'₦'}}</span> </td>
-    </tr>
+          </th>
+          <th class="text-center" pSortableColumn="foreignUsedMaxPrice">Max Price <p-sortIcon
+              field="foreignUsedMaxPrice">
+            </p-sortIcon>
+          </th>
 
-  </ng-template>
+        </tr>
 
-</p-table>
+
+      </ng-template>
+
+      <ng-template pTemplate="body" let-car>
+        <tr (click)="viewCar(car)" style="cursor: pointer;">
+          <!-- <td><span>First</span> </td> -->
+          <td>
+            <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}" [alt]="car.carModel"
+              width="100" class="shadow-4" />
+          </td>
+          <td><span>{{car.carCompany}}</span></td>
+          <td><span>{{car.carName}}</span></td>
+          <td><span>{{car.carYear}}</span></td>
+          <td class="text-center"> <span class="image-text"> {{car.foreignUsedMinPrice | currency:'₦'}} </span> </td>
+          <td class="text-center"> <span class="image-text"> {{car.foreignUsedMaxPrice | currency:'₦'}} </span> </td>
+          <td class="text-center"> <span class="image-text text-center"> {{car.nigeriaUsedPrice |
+              currency:'₦'}}</span> </td>
+        </tr>
+
+      </ng-template>
+
+    </p-table>
     <ng-template pTemplate="footer">
       <p-button icon="pi pi-check" (click)="displayCarPopUp=false" label="Close" styleClass="p-button-text"></p-button>
     </ng-template>

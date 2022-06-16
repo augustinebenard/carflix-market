@@ -1,6 +1,42 @@
 <app-header></app-header>
 <!-- START HOME -->
-<section class="section bg-home align-items-center d-flex" id="home">
+<div id="video-container">
+  <video autoplay webkit-playsinline playsinline loop [muted]="'muted'">
+    <source src="assets/vid/intro2.mp4" type="video/mp4" />
+  </video>
+  <div class="caption">
+    <div class="text-center text-white">
+      <h1 class="home-title text-uppercase">Welcome to Carflix</h1>
+      <div class="home-border my-3 mt-4"></div>
+    </div>
+    <!-- <div class="text-center text-white">
+      <h1 class="home-title text-uppercase">Welcome to Carflix</h1>
+      <div class="home-border my-3 mt-4"></div>
+      <p class="home-subtitle pt-4 mx-auto">Tell us what you NEED, tell us your FEATURES and BUDGET <br> let get
+        you the
+        best deal in the market</p>
+      <div class="pt-4 mt-3 home-button">
+        <a (click)="gotoQuestionaire()" class="btn btn-primary btn-round text-uppercase">Talk to us
+          <span class="play-shadow ms-2" data-bs-toggle="modal" data-bs-target="#watchvideomodal">
+            <span class="home-btn"><i class="mdi mdi-chevron-right text-center"></i></span></span>
+        </a>
+      </div>
+    </div> -->
+    <div class="text-center text-white talkTOUS">
+
+      <p class="home-subtitle pt-4 mx-auto">Tell us what you NEED, tell us your FEATURES and BUDGET <br> let get
+        you the
+        best deal in the market</p>
+      <div class="pt-4 mt-3 home-button">
+        <a (click)="gotoQuestionaire()" class="btn btn-primary btn-round text-uppercase homeButton">Find your car
+          <span class="play-shadow ms-2" data-bs-toggle="modal" data-bs-target="#watchvideomodal">
+            <span class="home-btn"><i class="mdi mdi-chevron-right text-center"></i></span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <section class="section bg-home align-items-center d-flex" id="home">
   <div class="bg-overlay"></div>
   <div class="container">
     <div class="row justify-content-center">
@@ -21,12 +57,73 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- END HOME -->
 
-<!-- START TOP CARS -->
-<section class="section bg-light" id="carMarket">
+
+<!-- START ARTICLE -->
+<section class="section bg-light" id="article">
   <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-12">
+        <div class="title-box">
+          <h5 class="sub-title text-primary text-uppercase">Top Articles</h5>
+          <h3 class="mt-2 fw-normal">Latest Posts Insights Articles</h3>
+          <div class="title-border"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mt-5 pt-4">
+
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let list of topArticleList?.slice().reverse();let i=index">
+        <div *ngIf="i<3" class="blog-box mt-4 bg-white p-3">
+          <div class="blog-img">
+            <img src="{{list.image}}" style="max-height:45em ;" alt="{{list.category}}" class="img-fluid mx-auto d-block rounded">
+          </div>
+          <div class="blog-post-detail my-3">
+            <p style="font-style: italic;" class="f-14 text-muted mb-1">{{list.dateCreated | date}} By <span
+                class="text-primary fw-normal">{{list.postedBy?.fullName}}</span></p>
+            <h5 class="f-17"><a href="#" class="text-dark">{{list.title}}</a></h5>
+            <hr>
+            <p style="    min-height: 106px;" class="text-muted mt-2">
+              {{list.excerpt.substr(0, 180)}}
+            </p>
+            <div class="mt-4">
+              <button class="btn btn-sm btn-outline-primary w-100" (click)="viewArticle(list.id)">Read More <i
+                  class="mdi mdi-arrow-right ms-1"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-lg-12">
+        <div class="mt-4 text-center">
+          <a routerLink="/articles" class="btn btn-primary btn-round">More Articles <i
+              class="mdi mdi-arrow-right ps-1"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#388c7c" type="ball-clip-rotate-multiple"
+    [fullScreen]="false">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+</section>
+<!-- END ARTICLE -->
+
+
+
+
+<!-- START TOP CARS -->
+<!-- <section class="section bg-light" id="carMarket"> -->
+<!-- <div class="container">
     <div class="row justify-content-center mb-4">
       <div class="col-lg-8">
         <div class="title-box text-center">
@@ -36,18 +133,18 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
 
-    <div class="card">
+<!-- <div class="card">
       <p-table [value]="topCarList" [responsive]="true" scrollDirection="both" selectionMode="single" dataKey="id"
         [rows]="10" [showCurrentPageReport]="true" [loading]="loading" styleClass=" p-datatable-striped p-datatable-sm"
         responsiveLayout="scroll">
         <ng-template pTemplate="header">
-          <tr class="header">
-            <!-- <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
+          <tr class="header"> -->
+<!-- <th rowspan="3" pSortableColumn="rank">Rank <p-sortIcon class="sortIcon" field="rank">
               </p-sortIcon>
             </th> -->
-            <th rowspan="3" pSortableColumn="sketch"> Image <p-sortIcon class="sortIcon" field="sketch">
+<!-- <th rowspan="3" pSortableColumn="sketch"> Image <p-sortIcon class="sortIcon" field="sketch">
               </p-sortIcon>
             </th>
             <th rowspan="3" pSortableColumn="carName">Company <p-sortIcon class="sortIcon" field="carName">
@@ -59,10 +156,10 @@
             <th rowspan="3" pSortableColumn="carYear">Year <p-sortIcon field="carYear">
               </p-sortIcon>
             </th>
-          </tr>
+          </tr> -->
 
 
-          <tr class="header">
+<!-- <tr class="header">
             <th colspan="2" class="text-center">Foreign Used</th>
             <th rowspan="3" pSortableColumn="nigeriaUsedPrice" class="text-center">Nigeria use Price <p-sortIcon
                 field="nigeriaUsedPrice">
@@ -85,9 +182,9 @@
 
         </ng-template>
         <ng-template pTemplate="body" let-car>
-          <tr (click)="viewCar(car)" style="cursor: pointer;">
-            <!-- <td><span>First</span> </td> -->
-            <td>
+          <tr (click)="viewCar(car)" style="cursor: pointer;"> -->
+<!-- <td><span>First</span> </td> -->
+<!-- <td>
               <img style="height: 36px;width: 36px;border-radius: 12px;" src="{{car.bluePrint}}" [alt]="car.carModel"
                 width="100" class="shadow-4" />
             </td>
@@ -114,7 +211,7 @@
     </div>
 
   </div>
-</section>
+</section> -->
 <!-- END TOP CARS -->
 
 
@@ -378,95 +475,7 @@
     </div>
   </div>
 
-  <!-- START ARTICLE -->
-  <!-- <section class="section bg-light" id="article">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-12">
-                <div class="title-box">
-                    <h5 class="sub-title text-primary text-uppercase">Our Articles</h5>
-                    <h3 class="mt-2 fw-normal">Our latest top posts insights articles</h3>
-                    <div class="title-border"></div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row mt-5 pt-4" >
-            <div class="col-lg-3">
-                <div class="blog-box mt-4 bg-white p-3">
-                    <div class="blog-img">
-                        <img src="https://image.shutterstock.com/image-photo/warsaw-poland-06092020-skoda-fabia-260nw-1762643651.jpg" alt="" class="img-fluid mx-auto d-block rounded">
-                    </div>
-                    <div class="blog-post-detail my-3">
-                        <p class="f-14 text-muted mb-1">23 march 2021 <span class="text-primary fw-normal">Calvin
-                                Hubbard</span></p>
-                        <h5 class="f-17"><a href="#" class="text-dark">Doing a cross country road trip</a></h5>
-                        <p class="text-muted mt-2">She packed seven versalia, put her initial into question belt made on the way..</p>
-                        <div class="mt-4">
-                            <a href="" class="btn btn-sm btn-primary">Read More <i
-                                    class="mdi mdi-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="blog-box mt-4 bg-white p-3">
-                    <div class="blog-img">
-                        <img src="https://image.shutterstock.com/image-photo/novosibirsk-russia-november-16-2018-260nw-1231983415.jpg" alt="" class="img-fluid mx-auto d-block rounded">
-                    </div>
-                    <div class="blog-post-detail my-3">
-                        <p class="f-14 text-muted mb-1">14 march 2021 <span class="text-primary fw-normal">Zachary
-                                Tevis</span></p>
-                        <h5 class="f-17"><a href="#" class="text-dark">New exhibition at our Museum</a></h5>
-                        <p class="text-muted mt-2">Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-                        <div class="mt-4">
-                            <a routerLink="view-article" class="btn btn-sm btn-primary">Read More <i
-                                    class="mdi mdi-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="blog-box mt-4 bg-white p-3">
-                  <div class="blog-img">
-                      <img src="https://image.shutterstock.com/image-photo/chiangmai-thailand-november-6-2015-260nw-361645478.jpg" alt="" class="img-fluid mx-auto d-block rounded">
-                  </div>
-                  <div class="blog-post-detail my-3">
-                      <p class="f-14 text-muted mb-1">23 march 2021 <span class="text-primary fw-normal">Calvin
-                              Hubbard</span></p>
-                      <h5 class="f-17"><a href="#" class="text-dark">Doing a cross country road trip</a></h5>
-                      <p class="text-muted mt-2">She packed seven versalia, put her initial into question belt made on the way..</p>
-                      <div class="mt-4">
-                          <a class="btn btn-sm btn-primary" >Read More <i
-                                  class="mdi mdi-arrow-right ms-1"></i></a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-            <div class="col-lg-3">
-                <div class="blog-box mt-4 bg-white p-3">
-                    <div class="blog-img">
-                        <img src="https://image.shutterstock.com/image-photo/ivalo-finland-january-28-2016-260nw-371864773.jpg" alt="" class="img-fluid mx-auto d-block rounded">
-                    </div>
-                    <div class="blog-post-detail my-3">
-                        <p class="f-14 text-muted mb-1">07 April 2021 <span class="text-primary fw-normal">William
-                                Alderman</span></p>
-                        <h5 class="f-17"><a href="#" class="text-dark">Why are so many people..
-                            </a></h5>
-                        <p class="text-muted mt-2">Far far away, behind the far word moun taiandns from the countries Consonantia.
-                        </p>
-                        <div class="mt-4">
-                            <a routerLink="view-article" class="btn btn-sm btn-primary">Read More <i
-                                    class="mdi mdi-arrow-right ms-1"></i></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-  <!-- END ARTICLE -->
 
   <!-- START GET STARTED -->
   <div class="section-lg bg-cta" style="    padding-bottom: 2px;padding-top: 40px;position: relative;">
@@ -605,6 +614,8 @@
   </div>
 </section>
 <!-- END CARFLIX ENROLLMENT SECTION -->
+
+
 
 <!-- FOLLOW US AND FOOTER -->
 <section class="bg-footer" id="followUs" style="    background: #132527;padding-top: 26px;padding-bottom: 10px;">

@@ -4,13 +4,16 @@ import { ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+
+  
 
   articles!: any;
   cars: any = [];
@@ -20,23 +23,25 @@ export class HomeComponent implements OnInit {
   selectedCars!: any;
   loading: boolean = true;
   reminderEmail: any;
+  topArticleList: any;
 
-  constructor(private service: ApiService,private spinner:NgxSpinnerService, private toastr: ToastrService, private messageService: MessageService, private confirmationService: ConfirmationService, private router: Router) { }
+
+  constructor(private service: ApiService,private spinner:NgxSpinnerService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
 
     // this.cars =
 
-
+this.getTopArticles()
 
     this.getTopCars()
-    console.log(this.topCarList);
+    // console.log(this.topCarList);
   }
 
   getTopCars() {
     this.loading = true
     this.service.getCars().subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
 
       this.topCarList=res.data.slice(0, 10)
       this.loading = false
@@ -89,5 +94,19 @@ export class HomeComponent implements OnInit {
 
   viewArticle(id: number): void {
     this.router.navigate(['view-article', id]);
+  }
+
+  getTopArticles(){
+    this.spinner.show()
+    this.service.getArticles().subscribe((res:any)=>{
+      this.spinner.hide()
+      this.topArticleList=res.data
+      console.log(this.topArticleList);
+      
+  
+    }, (error: any) => {
+      // console.log(error);
+      this.spinner.hide()
+    })
   }
 }

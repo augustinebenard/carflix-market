@@ -1,3 +1,19 @@
+
+.carousel-control-next, .carousel-control-prev {
+   
+    width: fit-content !important;
+  
+}
+.carousel-indicators li{
+  background-color: black !important;
+}
+.carousel-indicators .active{
+  opacity: 1;
+  border: 3px solid #388c7c;
+}
+
+
+
 .home-title{
   color: #fff;
     margin-bottom: 15px;
@@ -344,3 +360,138 @@ border-radius: 0px;
   .work-box{
     border: 2px solid #efefef;
   }
+
+
+  #video-container {
+    height: 800px;
+    position: relative;
+  }
+
+  #video-container:before {
+    content:"";
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:1;
+    background: linear-gradient(to right,rgb(25 32 33 / 51%),rgb(56 140 124 / 28%));
+  }
+  
+  #video-container video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.9;
+  }
+  
+  /* Just styling the content of the div, the *magic* in the previous rules */
+  #video-container .caption {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  color: #dc0000;
+  padding: 10px;
+  top: 25%;
+
+  }
+
+  .text-white{
+    color: #b2b5b8c2!important;
+  }
+  .talkTOUS{
+    margin-top: 15%;
+  }
+
+  @media (min-width: 393px) and (max-width: 851px) {
+    .talkTOUS{
+      margin-top: 75%;
+    }
+    #video-container .caption {
+      top: 15%;
+    
+      }
+    
+  }
+
+
+  @media (min-width: 390px) and (max-width: 844px) {
+    .talkTOUS{
+      margin-top: 80%;
+    }
+    #video-container .caption {
+      top: 15%;
+    
+      }
+  }
+
+  @media (min-width: 360px) and (max-width: 740px) {
+    .talkTOUS{
+      margin-top: 75%;
+    }
+    #video-container .caption {
+      top: 15%;
+    
+      }
+  }
+
+  @media (min-width:820px) and (max-width: 1180px) {
+    .talkTOUS{
+      margin-top: 45%;
+    }
+    #video-container .caption {
+      top: 15%;
+    
+      }
+  }
+
+  @media (min-width:768px) and (max-width: 1024px) {
+    .talkTOUS{
+      margin-top: 45%;
+    }
+    #video-container .caption {
+      top: 15%;
+    
+      }
+  }
+
+  @media (min-width:280px) and (max-width: 653px) {
+    .talkTOUS{
+      margin-top: 90%;
+    }
+    #video-container .caption {
+      top: 15%;
+    
+      }
+  }
+
+  .homeButton{
+    animation: shake 2s cubic-bezier(.50, .15, .30, .40) both infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+    0%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+
+  }
+

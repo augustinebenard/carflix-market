@@ -1,0 +1,105 @@
+<!-- START  NAVBAR -->
+<nav style="    background-color: #223b40;
+   box-shadow: 0 0 20px rgb(0 0 0 / 6%);
+   padding: 7px 0px;" class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-light mb-3" id="navbar">
+    <div class="container">
+        <a class="navbar-brand logo text-uppercase" href="index.html">
+            <img src="assets/images/logos.png" alt="" height="34" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="mdi mdi-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto" id="navbar-navlist">
+                <li class="nav-item">
+                    <a class="nav-link" href="#article">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hireInspector">Hire Inspector</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#carflixapp">Carflix App</a>
+                </li>
+                <!-- <li class="nav-item">
+          <a class="nav-link" href="#article">Article</a>
+      </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#enrollment">Car Dealer Enroll</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#followUs">Contact Us</a>
+                </li>
+
+            </ul>
+
+            <div>
+                <ul class="top-right text-end list-unstyled list-inline mb-0 nav-social d-none d-lg-block">
+                    <li class="list-inline-item"><a href="" class="facebook"><i class="mdi mdi-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item"><a href="" class="twitter"><i class="mdi mdi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="" class="instagram"><i class="mdi mdi-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END NAVBAR -->
+<section class="section bg-light mt-5">
+    <div class="container">
+        <div class="m-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-7">
+                    <div class="title-box">
+                        <h5 class="sub-title text-primary text-uppercase">Articles</h5>
+                        <h3 class="mt-2 fw-normal">Our Articles</h3>
+                        <p class=" text-sm" style="font-weight: 300;color: slategray;">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Sit quaerat est quae nulla quos
+                            harum</p>
+                        <div class="title-border"></div>
+                    </div>
+                    <div class="filter mt-2">
+                        <span class="p-input-icon-left float-right">
+                            <i class="pi pi-search"></i>
+                            <input type="text" class="p-inputtext-sm" name="filterText" pInputText
+                                placeholder="Search e.g Toyota" />
+                        </span>
+                        <!-- <p-button label="Filter" styleClass=" p-button-sm" ></p-button> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-4">
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let list of articleList?.slice().reverse();">
+                <div class="blog-box mt-4 bg-white p-3">
+                    <div class="blog-img">
+                        <img src="{{list.image}}" alt="{{list.category}}" class="img-fluid mx-auto d-block rounded">
+                    </div>
+                    <div class="blog-post-detail my-3">
+                        <p style="font-style: italic;" class="f-14 text-muted mb-1">{{list.dateCreated | date}} By <span
+                                class="text-primary fw-normal">{{list.postedBy?.fullName}}</span></p>
+                        <h5 class="f-17"><a href="#" class="text-dark">{{list.title}}</a></h5>
+                        <hr>
+                        <p style="    min-height: 106px;" class="text-muted mt-2">
+                            {{list.excerpt.substr(0, 180)}}
+                        </p>
+                        <div class="mt-4">
+                            <button class="btn btn-sm btn-outline-primary w-100" (click)="viewArticle(list.id)">Read
+                                More <i class="mdi mdi-arrow-right ms-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#388c7c" type="ball-clip-rotate-multiple"
+    [fullScreen]="true">
+    <p style="color: white"> Fetching Articles... </p>
+</ngx-spinner>

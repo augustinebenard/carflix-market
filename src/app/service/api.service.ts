@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ApiService {
 
+
   baseUrl: string = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
@@ -45,6 +46,15 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/product/car/database/list`)
   }
 
+  getArticles() {
+    return this.http.get(`${this.baseUrl}/supports/article/list/top`)
+  }
 
+  getArticleById(id: any) {
+    return this.http.get(`${this.baseUrl}/supports/article/retrieve?article-id=${id}`)
+  }
+  filterRelatedArticles(term: any) {
+    return this.http.get(`${this.baseUrl}/supports/article/filter?term=${term}`)
+  }
 
 }

@@ -47,7 +47,7 @@ this.getTopArticles()
       this.loading = false
 
     }, (error: any) => {
-      console.log(error);
+      // console.log(error);
 
     }
 
@@ -61,7 +61,7 @@ this.getTopArticles()
     this.router.navigate(['carMarket'])
   }
   viewCar(car:any) {
-    console.log(car);
+    // console.log(car);
     this.router.navigate(['car-detail/'+car.carId])
 
 
@@ -78,7 +78,7 @@ this.getTopArticles()
       email: this.reminderEmail
     }
     this.service.createEmailReminder(obj).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.spinner.hide()
       if (res.message == "Success") {
 
@@ -101,7 +101,7 @@ this.getTopArticles()
     this.service.getArticles().subscribe((res:any)=>{
       this.spinner.hide()
       this.topArticleList=res.data
-      console.log(this.topArticleList);
+      // console.log(this.topArticleList);
       
   
     }, (error: any) => {

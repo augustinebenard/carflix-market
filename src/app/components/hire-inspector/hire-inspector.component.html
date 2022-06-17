@@ -33,22 +33,6 @@
                   <p-multiSelect [options]="listOfServices" formControlName="inspectionService"
                     defaultLabel="Select service" optionLabel="name" display="chip">
                   </p-multiSelect>
-
-                     <!-- <p-multiSelect [options]="listOfServices" [(ngModel)]="selectedServices" name="selectedServices"
-                    defaultLabel="Select Service" optionLabel="name" class="multiselect-custom">
-                    <ng-template let-value pTemplate="selectedItems">
-                      <div class="country-item country-item-value" *ngFor="let list of selectedServices">
-
-                        <div>{{list.name}} <span class="text-muted">{{list.price | currency:"NGN"}}</span></div>
-                      </div>
-
-                    </ng-template>
-                    <ng-template let-service pTemplate="item">
-                      <div class="country-item">
-                        <div>{{service.name}} <span class="text-muted">{{service.price | currency:"NGN"}}</span></div>
-                      </div>
-                    </ng-template>
-                  </p-multiSelect> -->
                 </span>
 
 
@@ -120,3 +104,6 @@
 </section>
 <!-- END GET STARTED -->
 <!-- Booking End -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin" [fullScreen]="true">
+  <p style="color: white"> loading... </p>
+</ngx-spinner>

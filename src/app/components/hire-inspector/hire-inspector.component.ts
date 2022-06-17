@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApiService } from './../../service/api.service';
@@ -18,7 +19,7 @@ export class HireInspectorComponent implements OnInit {
   stateOptions!: any[];
   hireForm: boolean = false;
   form!: FormGroup
-  constructor(private service: ApiService, private fb: FormBuilder, private toastr:ToastrService) {
+  constructor(private service: ApiService, private spinner: NgxSpinnerService, private fb: FormBuilder, private toastr: ToastrService) {
 
   }
 
@@ -42,7 +43,6 @@ export class HireInspectorComponent implements OnInit {
     this.service.getInspectionService().subscribe((res: any) => {
       // console.log(res);
       this.listOfServices = res.data
-
     }, (error: any) => {
       console.log(error);
 
@@ -53,7 +53,6 @@ export class HireInspectorComponent implements OnInit {
 
   whatsappStatusToggle() {
     if (this.whatsappStatus == true) {
-
       this.form.get('whatsappContact')?.setValue(this.form.value.phone)
     }
     if (this.whatsappStatus == false) {
@@ -64,6 +63,15 @@ export class HireInspectorComponent implements OnInit {
   }
 
   proceed(): any {
+    this.spinner.show()
+    // stop here if form is invalid
+    if (this.form.invalid) {
+      this.spinner.hide();
+      this.toastr.error('', 'Invalid Fields');
+      return;
+
+    }
+    this.spinner.hide();
     this.hireForm = true
 
   }
@@ -73,19 +81,19 @@ export class HireInspectorComponent implements OnInit {
 
     this.service.submitInpectionRecord(this.form.value).subscribe((res: any) => {
       // console.log(res);
-      this.hireForm=false
+      this.hireForm = false
 
-      if(res.message=="Success"){
-        this.toastr.success("",res.data)
+      if (res.message == "Success") {
+        this.toastr.success("", res.data)
         this.form.reset()
       }
-      else{
-        this.toastr.warning("",res.data)
+      else {
+        this.toastr.warning("", res.data)
       }
 
-    },error=>{
-      this.toastr.error("",error.error)
-      this.hireForm=false
+    }, error => {
+      this.toastr.error("", error.error)
+      this.hireForm = false
     })
 
   }

@@ -16,11 +16,12 @@ const routes: Routes = [
   { path: 'carMarket', component: CarMarketComponent },
   { path: 'view-article/:id', component: ArticleDetailsComponent },
   { path: 'car-detail/:id', component: CarDetailComponent },
-  { path: 'articles', component: ArticlesComponent }
+  { path: 'articles', component: ArticlesComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -80,7 +80,7 @@
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let list of topArticleList?.slice().reverse();let i=index">
         <div *ngIf="i<3" class="blog-box mt-4 bg-white p-3">
           <div class="blog-img">
-            <img src="{{list.image}}" style="max-height:45em ;" alt="{{list.category}}" class="img-fluid mx-auto d-block rounded">
+            <img src="{{list.image}}" style="    max-height: 15em;" alt="{{list.category}}" class="img-fluid mx-auto d-block rounded">
           </div>
           <div class="blog-post-detail my-3">
             <p style="font-style: italic;" class="f-14 text-muted mb-1">{{list.dateCreated | date}} By <span
@@ -262,13 +262,14 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">You have a car you want you like and want to buy?</h3>
-                  <p class="mb-4">Hire our
-                    Inspector to help you inspect it and drive it to your location, easy and
-                    cheap</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
+                  <h3 class="mb-3">Diagnostic</h3>
+                  <p class="mb-4">
+                    We help in scanning your car 's components and systems to check for issues
+with the engine, transmission,oil tank ,brakes,throttle and many more components.
+                  </p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Engine Component</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Transmission</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Oil tank, brake etc</p>
                   <a class="btn btn-primary btn-round" style="  width: 250px;" (click)="hireInspector()">Hire Now <i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
@@ -283,13 +284,13 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">You have a car you want you like and want to buy?</h3>
-                  <p class="mb-4">Hire our
-                    Inspector to help you inspect it and drive it to your location, easy and
-                    cheap</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
+                  <h3 class="mb-3">Engine Service</h3>
+                  <p class="mb-4">This typically includes spark plugs replacement,spark plugs wire inspections,
+                    Air and filter replacement ,a thorough inspection of all engine components,where necessary to
+                    help prolong the life of your engine.</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Spark Plug Replacement</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Wire Inspection</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Air and filter replacement etc</p>
                   <a class="btn btn-primary btn-round" style="  width: 250px;" (click)="hireInspector()">Hire Now<i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
@@ -304,13 +305,13 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">You have a car you want you like and want to buy?</h3>
-                  <p class="mb-4">Hire our
-                    Inspector to help you inspect it and drive it to your location, easy and
-                    cheap</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
+                  <h3 class="mb-3">Need Hlep in Replacing your tire?</h3>
+                  <p class="mb-4">We check if there's any damage on your tire by placing a penny head first
+                    into several tread grooves across the tire.<br>If we see the top of Lincoln's head ,your treads are
+                    shallow and worn .If this is the case ,your tires need to be replaced.</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Fast</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>100% Guaranteed</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Zero worries</p>
                   <a class="btn btn-primary btn-round" style="  width: 250px;" (click)="hireInspector()">Hire Now<i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>
@@ -325,13 +326,12 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="mb-3">You have a car you want you like and want to buy?</h3>
-                  <p class="mb-4">Hire our
-                    Inspector to help you inspect it and drive it to your location, easy and
-                    cheap</p>
+                  <h3 class="mb-3">Oil Replacement</h3>
+                  <p class="mb-4">This is the process of removing old ,dirty oil in a vehicle and replacing it with clean
+                    oil.It reduces friction if not done when needed.</p>
                   <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Quality Servicing</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Expert Workers</p>
-                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Modern Equipment</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Clean</p>
+                  <p><i class="mdi mdi-checkbox-multiple-marked-circle text-success me-3"></i>Properly kept</p>
                   <a class="btn btn-primary btn-round " style="  width: 250px;" (click)="hireInspector()">Hire Now<i
                       class="mdi mdi-arrow-right ps-1"></i></a>
                 </div>

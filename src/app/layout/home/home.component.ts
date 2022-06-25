@@ -101,7 +101,7 @@ this.getTopArticles()
     this.service.getArticles().subscribe((res:any)=>{
       this.spinner.hide()
       this.topArticleList=res.data
-      // console.log(this.topArticleList);
+      console.log(this.topArticleList);
       
   
     }, (error: any) => {

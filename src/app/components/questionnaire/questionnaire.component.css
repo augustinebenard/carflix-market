@@ -481,3 +481,10 @@ color: rgb(151, 228, 249);
   color: red;
   text-decoration: underline;
 }
+
+.text-red {
+  color: red;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 500;
+}

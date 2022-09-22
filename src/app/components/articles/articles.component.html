@@ -85,8 +85,8 @@
                                 class="text-primary fw-normal">{{list.postedBy?.fullName}}</span></p>
                         <h5 class="f-17"><a href="#" class="text-dark">{{list.title}}</a></h5>
                         <hr>
-                        <p style="    min-height: 106px;" class="text-muted mt-2">
-                            {{list.excerpt.substr(0, 180)}}
+                        <p style="    min-height: 100px;" class="text-muted mt-2">
+                            {{list.excerpt.substr(0, 120)}}...
                         </p>
                         <div class="mt-4">
                             <button class="btn btn-sm btn-outline-primary w-100" (click)="viewArticle(list.id)">Read

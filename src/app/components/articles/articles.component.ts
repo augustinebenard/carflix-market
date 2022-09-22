@@ -21,10 +21,10 @@ export class ArticlesComponent implements OnInit {
   }
   getArticles() {
     this.spinner.show()
-    this.service.getArticles().subscribe((res: any) => {
+    this.service.getArticles()
+    .subscribe((res: any) => {
       this.spinner.hide()
       this.articleList = res.data
-
     }, (error: any) => {
       console.log(error);
       this.spinner.hide()

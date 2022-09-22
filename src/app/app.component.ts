@@ -15,16 +15,16 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit(): void {
-   this.setAnalytics()
+  this.setAnalytics()
   }
   setAnalytics() {
     this.router.events.pipe(
       filter((event:any) => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
 
-       gtag('event', 'page_view', {
+      gtag('event', 'page_view', {
           page_path: event.urlAfterRedirects
-       })
+      })
   
     })
   }

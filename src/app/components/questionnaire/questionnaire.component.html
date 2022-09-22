@@ -62,7 +62,7 @@
             </fieldset>
 
             <!-- QUESTION TWO -->
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -133,7 +133,7 @@
 
             <!-- QUESTION THREE -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -193,7 +193,7 @@
 
             <!-- QUESTION FOUR -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -244,7 +244,7 @@
 
             <!-- QUESTION FIVE -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -295,7 +295,7 @@
 
             <!-- QUESTION SIX -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -363,7 +363,7 @@
 
             <!-- QUESTION SEVEN -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -414,7 +414,7 @@
 
             <!-- QUESTION EIGHT -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -464,7 +464,7 @@
 
             <!-- QUESTION NINE -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -512,7 +512,7 @@
 
             <!-- QUESTION TEN -->
 
-            <fieldset >
+            <fieldset>
               <div class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -552,7 +552,7 @@
             <!--ENTER CONTACT DETAILS PAGE -->
 
             <fieldset>
-               <!--ENTER CONTACT DETAILS PAGE -->
+              <!--ENTER CONTACT DETAILS PAGE -->
               <div *ngIf="!submitted" class="form-card">
                 <div class="row">
                   <div class="col-7">
@@ -563,29 +563,47 @@
                   </div>
 
                   <div class="container p-4">
-                    <h2 class="text-center mb-4">Enter Contact Details</h2>
+                    <h2 class="text-center mb-4">Contact Details</h2>
                     <div class="form-group">
-                      <input class="form-control" type="text" formControlName="respondentName" placeholder="Name">
+                      <input class="form-control" type="text" formControlName="respondentName" placeholder="Name *"
+                        [ngClass]="{ 'is-invalid': fn.respondentName.touched && fn.respondentName.errors }">
+                      <span *ngIf="fn.respondentName.touched && fn.respondentName.invalid" class="text-red form-group">
+                        <small *ngIf="fn.respondentName.errors?.required">Name is Required.</small>
+                      </span>
+
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="respondentPhoneNumber"
+                        placeholder="Phone Number *"
+                        [ngClass]="{ 'is-invalid': fn.respondentPhoneNumber.touched && fn.respondentPhoneNumber.errors }">
+                      <span *ngIf="fn.respondentPhoneNumber.touched && fn.respondentPhoneNumber.invalid"
+                        class="text-red form-group">
+                        <small *ngIf="fn.respondentPhoneNumber.errors?.required">Phone number is required.</small>
+                      </span>
                     </div>
                     <div class="form-group">
                       <select style="background-color: #eceff1;font-size: 16px;
                       letter-spacing: 1px;border: 1px solid #ccc;font-family: montserrat;" id="my-select"
-                        class="form-control form-select" formControlName="respondentContactType">
-                        <option>Select Contact Type</option>
+                        class="form-control form-select" formControlName="respondentAltContactType">
+                        <option selected>Select Alternative Contact Type</option>
+                        <option value="Email">Email</option>
+                        <option value="Telegram">Telegram</option>
                         <option value="Whatsapp"> Whatsapp <i style="color: black;" class="mdi mdi-whatsapp"></i>
                         </option>
-                        <option value="Telegram">Telegram</option>
-                        <option value="Email">Email</option>
-                        <option value="Phone Number">Phone Number</option>
                       </select>
                     </div>
                     <div class="form-group">
-                      <input class="form-control" type="text" formControlName="respondentContact"
-                        placeholder="Enter Contact">
+                      <input class="form-control" type="text" formControlName="respondentAltContact"
+                        placeholder="Enter Alternative Contact">
                     </div>
                     <div class="form-group">
                       <input class="form-control" type="text" formControlName="respondentAddress"
-                        placeholder="Enter Address">
+                        placeholder="Enter Address *"
+                        [ngClass]="{ 'is-invalid': fn.respondentAddress.touched && fn.respondentAddress.errors }">
+                      <span *ngIf="fn.respondentAddress.touched && fn.respondentAddress.invalid"
+                        class="text-red form-group">
+                        <small *ngIf="fn.respondentAddress.errors?.required">Address is required.</small>
+                      </span>
                     </div>
 
                   </div>
@@ -596,67 +614,68 @@
                 class="btn btn-primary action-button btn-round" (click)="submitQuestionnaires()">Submit <i
                   class="mdi mdi-content-save-all ps-1"></i></button>
 
-              <a *ngIf="!submitted" class=" previous btn btn-primary action-button-previous btn-round" name="previous" value="Previous">
+              <a *ngIf="!submitted" class=" previous btn btn-primary action-button-previous btn-round" name="previous"
+                value="Previous">
                 <i class="mdi mdi-arrow-left ps-1"></i> Previous
               </a>
 
 
-  <!-- FINISH PAGE -->
-  <div *ngIf="submitted" class="form-card mt-5">
-    <div class="row">
-      <div class="col-7">
-        <h2 class="fs-title"></h2>
-      </div>
-      <div class="col-5">
-        <!-- <h2 class="steps">Step 12 - 12</h2> -->
-      </div>
-    </div> <br><br>
-    <h6 class="text-center mb-5 text-lead " style="font-weight:600"><strong>Your Response has been submitted
-        successfully!</strong></h6> <br>
-    <div class="row justify-content-center">
-      <div style="text-align: center;font-size: 70px;color: #388c7c;" class="col-3"> <i
-          class="mdi mdi-checkbox-marked-circle-outline"></i> </div>
-    </div> <br><br>
-    <div class="row justify-content-center">
-      <div class="col-7 text-center">
-        <h5 class=" text-center" style="font-weight:400">
-          <p class="text-lead">You can follow us via: </p>
-        </h5>
-        <div class="contact-info row px-xl-5 px-sm-4 px-3">
+              <!-- FINISH PAGE -->
+              <div *ngIf="submitted" class="form-card mt-5">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title"></h2>
+                  </div>
+                  <div class="col-5">
+                    <!-- <h2 class="steps">Step 12 - 12</h2> -->
+                  </div>
+                </div> <br><br>
+                <h6 class="text-center mb-5 text-lead " style="font-weight:600"><strong>Your Response has been submitted
+                    successfully!</strong></h6> <br>
+                <div class="row justify-content-center">
+                  <div style="text-align: center;font-size: 70px;color: #388c7c;" class="col-3"> <i
+                      class="mdi mdi-checkbox-marked-circle-outline"></i> </div>
+                </div> <br><br>
+                <div class="row justify-content-center">
+                  <div class="col-7 text-center">
+                    <h5 class=" text-center" style="font-weight:400">
+                      <p class="text-lead">You can follow us via: </p>
+                    </h5>
+                    <div class="contact-info row px-xl-5 px-sm-4 px-3">
 
-          <div class="col-3 px-1">
-            <a class="btn btn-outline-light w-100">
-              <span class="text-lg fab fa-twitter"></span>
+                      <div class="col-3 px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-twitter"></span>
 
-            </a>
-          </div>
-          <div class="col-3 me-auto px-1">
-            <a class="btn btn-outline-light w-100">
-              <span class="text-lg fab fa-facebook"></span>
-            </a>
-          </div>
+                        </a>
+                      </div>
+                      <div class="col-3 me-auto px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-facebook"></span>
+                        </a>
+                      </div>
 
-          <div class="col-3 me-auto px-1">
-            <a class="btn btn-outline-light w-100">
-              <span class="text-lg fab fa-instagram"></span>
-            </a>
-          </div>
+                      <div class="col-3 me-auto px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-instagram"></span>
+                        </a>
+                      </div>
 
-          <div class="col-3 me-auto px-1">
-            <a class="btn btn-outline-light w-100">
-              <span class="text-lg fab fa-whatsapp"></span>
-            </a>
-          </div>
+                      <div class="col-3 me-auto px-1">
+                        <a class="btn btn-outline-light w-100">
+                          <span class="text-lg fab fa-whatsapp"></span>
+                        </a>
+                      </div>
 
-        </div>
-        <div class="pt-4 mt-3 home-button">
-          <a (click)="goHome()" class="btn btn-primary btn-round text-uppercase">Back Home
-            <span class="home-btn"><i class="mdi mdi-chevron-left text-center"></i></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+                    </div>
+                    <div class="pt-4 mt-3 home-button">
+                      <a (click)="goHome()" class="btn btn-primary btn-round text-uppercase">Back Home
+                        <span class="home-btn"><i class="mdi mdi-chevron-left text-center"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </fieldset>
 
 

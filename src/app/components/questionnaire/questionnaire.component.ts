@@ -212,12 +212,12 @@ export class QuestionnaireComponent implements OnInit {
       carToBuy: ['', [Validators.required]],
       noOfSeats: ['', [Validators.required]],
       respondentName: ['', [Validators.required]],
-      respondentContactType: ['Select Contact Type', [Validators.required]],
-      respondentContact: ['', [Validators.required]],
+      respondentPhoneNumber: ['', [Validators.required,Validators.pattern("^((\\+234-?))?[0-9]{11}$")]],
+      respondentAltContactType: ['Select Alternative Contact Type', [Validators.required]],
+      respondentAltContact: ['', [Validators.required]],
       respondentAddress: ['', [Validators.required]],
       thingsYouLoveInCar: new FormControl([], [Validators.required]),
       carBrand: new FormControl([], [Validators.required]),
-
     })
 
   }
@@ -266,9 +266,15 @@ export class QuestionnaireComponent implements OnInit {
 
   submitQuestionnaires() {
     this.spinner.show()
-    console.log(this.form.value);
+    if (this.form.invalid) {
+      this.toastr.warning('Enter required fields!', 'ERROR!');
+      this.submitted = false;
+      this.spinner.hide()
+      return;
+    }
+    // console.log(this.form.value);
     this.service.submitQuestionnaire(this.form.value).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.spinner.hide()
       if (res.message == "Success") {
         this.submitted = true
@@ -296,7 +302,6 @@ export class QuestionnaireComponent implements OnInit {
 
 
   maritalStatusToggle(e: any) {
-
     if (e.target.value === "Yes") {
       this.married = true
     } else {
